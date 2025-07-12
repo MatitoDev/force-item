@@ -1,0 +1,13 @@
+name: PluginTemplateMatito
+version: '1.0-SNAPSHOT'
+main: dev.matito.pluginTemplateMatito.PluginTemplateMatito
+api-version: '1.21.6'
+prefix: Template
+load: STARTUP
+authors: [ Matito ]
+description: template for minecraft plugins
+website: https://matito.dev
+dependencies:
+  - name: CommandAPI
+    required: true
+
