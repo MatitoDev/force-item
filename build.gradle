@@ -46,7 +46,7 @@ shadowJar {
 
 runServer {
     downloadPlugins {
-        //url("https://cdn.modrinth.com/data/kTmEpjUi/versions/mUVvmAmt/MTimer-132.jar")
+        url("https://cdn.modrinth.com/data/kTmEpjUi/versions/mUVvmAmt/MTimer-132.jar")
         hangar("CommandAPI", "10.1.1")
         hangar("ViaVersion", "5.4.2-SNAPSHOT+777")
         hangar("ViaBackwards", "5.4.2-SNAPSHOT+457")

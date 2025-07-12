@@ -1,11 +1,11 @@
-package dev.matito.pluginTemplateMatito;
+package dev.matito.forceItem;
 
 import de.mineking.databaseutils.DatabaseManager;
-import dev.matito.pluginTemplateMatito.commands.TestCommand;
-import dev.matito.pluginTemplateMatito.database.PlayerTypeMapper;
-import dev.matito.pluginTemplateMatito.database.object.Test;
-import dev.matito.pluginTemplateMatito.database.table.TestTable;
-import dev.matito.pluginTemplateMatito.listener.TemplateListener;
+import dev.matito.forceItem.commands.TestCommand;
+import dev.matito.forceItem.database.PlayerTypeMapper;
+import dev.matito.forceItem.database.object.Test;
+import dev.matito.forceItem.database.table.TestTable;
+import dev.matito.forceItem.listener.TemplateListener;
 import io.github.cdimascio.dotenv.Dotenv;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
@@ -18,9 +18,9 @@ import org.jdbi.v3.postgres.PostgresPlugin;
 import org.jetbrains.annotations.NotNull;
 
 @Getter
-public final class PluginTemplateMatito extends JavaPlugin {
+public final class ForceItem extends JavaPlugin {
 
-	public static PluginTemplateMatito INSTANCE;
+	public static ForceItem INSTANCE;
 	public final static Dotenv CREDENTIALS = Dotenv.configure().filename("credentials").load();
 
 	private DatabaseManager database;
@@ -77,10 +77,10 @@ public final class PluginTemplateMatito extends JavaPlugin {
 	public static TextComponent getPrefix() {
 		return Component.empty()
 				.append(Component.text("[", NamedTextColor.DARK_GRAY)
-						.append(Component.text("Template", TextColor.color(0x508d98)))
-						.append(Component.text("Plugin", TextColor.color(0x1b5a65)))
+						.append(Component.text("Force", TextColor.color(0x508d98)))
+						.append(Component.text("Item", TextColor.color(0x1b5a65)))
 						.append(Component.text("] ", NamedTextColor.DARK_GRAY))
-				).color(NamedTextColor.GRAY);
+				).color(NamedTextColor.AQUA);
 	}
 
 	@Override

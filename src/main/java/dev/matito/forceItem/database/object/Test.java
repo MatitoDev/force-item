@@ -1,12 +1,10 @@
-package dev.matito.pluginTemplateMatito.database.object;
+package dev.matito.forceItem.database.object;
 
 import de.mineking.databaseutils.Column;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.bukkit.OfflinePlayer;
-
-import java.time.Instant;
 
 @Getter
 @RequiredArgsConstructor

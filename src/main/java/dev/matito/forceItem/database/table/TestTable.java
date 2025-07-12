@@ -1,9 +1,9 @@
-package dev.matito.pluginTemplateMatito.database.table;
+package dev.matito.forceItem.database.table;
 
 import de.mineking.databaseutils.Table;
 import de.mineking.databaseutils.Where;
 import de.mineking.databaseutils.exception.ConflictException;
-import dev.matito.pluginTemplateMatito.database.object.Test;
+import dev.matito.forceItem.database.object.Test;
 import org.bukkit.OfflinePlayer;
 import java.util.Optional;
 

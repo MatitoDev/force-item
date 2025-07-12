@@ -1,4 +1,4 @@
-package dev.matito.pluginTemplateMatito.database;
+package dev.matito.forceItem.database;
 
 import de.mineking.databaseutils.DatabaseManager;
 import de.mineking.databaseutils.TypeMapper;

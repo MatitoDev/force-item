@@ -1,6 +1,6 @@
-package dev.matito.pluginTemplateMatito.listener;
+package dev.matito.forceItem.listener;
 
-import dev.matito.pluginTemplateMatito.PluginTemplateMatito;
+import dev.matito.forceItem.ForceItem;
 import net.kyori.adventure.platform.bukkit.BukkitAudiences;
 import net.kyori.adventure.text.Component;
 import org.bukkit.event.EventHandler;
@@ -12,8 +12,8 @@ public class TemplateListener implements Listener {
 
 	@EventHandler(ignoreCancelled = true)
 	public void onPlayerJoin(PlayerJoinEvent event) {
-		BukkitAudiences.create(PluginTemplateMatito.INSTANCE).players()
-				.sendMessage(PluginTemplateMatito.getPrefix().append(event.getPlayer().displayName().append(Component.text(" joined the server!"))));
+		BukkitAudiences.create(ForceItem.INSTANCE).players()
+				.sendMessage(ForceItem.getPrefix().append(event.getPlayer().displayName().append(Component.text(" joined the server!"))));
 	}
 
 }
