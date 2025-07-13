@@ -3,11 +3,12 @@ version: '1.0-SNAPSHOT'
 main: dev.matito.forceItem.ForceItem
 api-version: '1.21.6'
 prefix: ForceItem
-load: STARTUP
 authors: [ Matito ]
 description: Force item battle
 website: https://matito.dev
 dependencies:
   - name: CommandAPI
+    required: true
+  - name: MTimer
     required: true
 
