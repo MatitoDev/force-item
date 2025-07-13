@@ -47,25 +47,7 @@ public final class ForceItem extends JavaPlugin {
 	public void onEnable() {
 		registerListeners();
 		setupDatabase();
-
-		//idk -> ai -> worked
-		try {
-			Field instanceField = MTimerAPI.class.getDeclaredField("INSTANCE");
-			instanceField.setAccessible(true);
-			timer = (MTimerAPI) instanceField.get(null);
-
-			if (timer == null) {
-				getLogger().warning("MTimerAPI not accessible!");
-				return;
-			}
-
-			getLogger().info("Successfully connected to MTimer API!");
-
-		} catch (Exception e) {
-			getLogger().severe("Failed to access MTimer API: " + e.getMessage());
-			e.printStackTrace();
-			return;
-		}
+		setupTimer();
 	}
 
 	private void registerCommands() {
@@ -95,6 +77,27 @@ public final class ForceItem extends JavaPlugin {
 
 
 		table = getDatabase().getTable(Test.class, Test::new).name("test").table(TestTable.class).create();
+	}
+
+	private void setupTimer() {
+		//idk -> ai -> worked
+		try {
+			Field instanceField = MTimerAPI.class.getDeclaredField("INSTANCE");
+			instanceField.setAccessible(true);
+			timer = (MTimerAPI) instanceField.get(null);
+
+			if (timer == null) {
+				getLogger().warning("MTimerAPI not accessible!");
+				return;
+			}
+
+			getLogger().info("Successfully connected to MTimerAPI!");
+
+		} catch (Exception e) {
+			getLogger().severe("Failed to access MTimerAPI: " + e.getMessage());
+			e.printStackTrace();
+			return;
+		}
 	}
 
 	public static TextComponent getPrefix() {
