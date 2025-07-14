@@ -16,6 +16,8 @@ import org.bukkit.block.banner.PatternType;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+//todo go though all and test them
+
 
 @Getter
 public enum ItemEntry {
@@ -469,8 +471,7 @@ public enum ItemEntry {
 	TORCHFLOWER_SEEDS("Torchflower Seeds", Dimension.OVERWORLD, 0, new ItemStack(Material.TORCHFLOWER_SEEDS)),
 	SNIFFER_EGG("Sniffer Egg", Dimension.OVERWORLD, 0, new ItemStack(Material.SNIFFER_EGG)),
 	TORCHFLOWER("Torchflower", Dimension.OVERWORLD, 0, new ItemStack(Material.TORCHFLOWER)),
-	PITCHER_PLANT("Pitcher Plant", Dimension.OVERWORLD, 0, new ItemStack(Material.PITCHER_PLANT)),
-	BUSH("Bush", Dimension.OVERWORLD, 0, new ItemStack(Material.SWEET_BERRY_BUSH)), // Assuming a sweet berry bush as a stand-in
+	PITCHER_PLANT("Pitcher Plant", Dimension.OVERWORLD, 0, new ItemStack(Material.PITCHER_PLANT)), // Assuming a sweet berry bush as a stand-in
 	CACTUS_FLOWER("Cactus Flower", Dimension.OVERWORLD, 0, new ItemStack(Material.FLOWER_POT)), // No direct item, using flower pot as a placeholder
 	WILDFLOWERS("Wildflowers", Dimension.OVERWORLD, 0, new ItemStack(Material.DANDELION)), // Using dandelion as a representative
 	LEAF_LITTER("Leaf Litter", Dimension.OVERWORLD, 0, new ItemStack(Material.OAK_LEAVES)), // Using oak leaves as a stand-in
@@ -481,7 +482,6 @@ public enum ItemEntry {
 	TALL_DRY_GRASS("Tall Dry Grass", Dimension.OVERWORLD, 0, new ItemStack(Material.TALL_GRASS)),
 	OPEN_EYEBLOSSOM("Open Eyeblossom", Dimension.OVERWORLD, 0, new ItemStack(Material.OXEYE_DAISY)), // Using oxeye daisy as a stand-in
 	CLOSED_EYEBLOSSOM("Closed Eyeblossom", Dimension.OVERWORLD, 0, new ItemStack(Material.OXEYE_DAISY)), // Using oxeye daisy as a stand-in
-	FIREFLY_BUSH("Firefly Bush", Dimension.OVERWORLD, 0, new ItemStack(Material.SWEET_BERRY_BUSH)), // Using sweet berry bush as a stand-in
 
 	// Overworld - Difficulty 1
 	IRON_INGOT("Iron Ingot", Dimension.OVERWORLD, 1, new ItemStack(Material.IRON_INGOT)),
@@ -1538,9 +1538,12 @@ public enum ItemEntry {
 
 	private static ItemStack createFireworkStar(DyeColor color) {
 		ItemStack star = new ItemStack(Material.FIREWORK_STAR);
-		FireworkEffect effect = FireworkEffect.builder().withColor(Color.fromRGB(color.getColor().asRGB())).build();
-		FireworkMeta meta = (FireworkMeta) star.getItemMeta();
-		meta.addEffect(effect);
+		FireworkEffect effect = FireworkEffect.builder()
+				.withColor(Color.fromRGB(color.getColor().asRGB()))
+				.build();
+
+		FireworkEffectMeta meta = (FireworkEffectMeta) star.getItemMeta();
+		meta.setEffect(effect);
 		star.setItemMeta(meta);
 		return star;
 	}
