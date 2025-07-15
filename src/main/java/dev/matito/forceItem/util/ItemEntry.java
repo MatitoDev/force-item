@@ -884,128 +884,13 @@ public enum ItemEntry {
 	TOTEM_OF_UNDYING("Totem of Undying", Dimension.OVERWORLD, 2, new ItemStack(Material.TOTEM_OF_UNDYING)),
 	BOTTLE_O_ENCHANTING("Bottle o' Enchanting", Dimension.OVERWORLD, 2, new ItemStack(Material.EXPERIENCE_BOTTLE)),
 	FIREWORK_ROCKET("Firework Rocket", Dimension.OVERWORLD, 2, new ItemStack(Material.FIREWORK_ROCKET)),
-	FIREWORK_STAR_WHITE("Firework Star White", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.WHITE)),
-	FIREWORK_STAR_ORANGE("Firework Star Orange", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.ORANGE)),
-	FIREWORK_STAR_MAGENTA("Firework Star Magenta", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.MAGENTA)),
-	FIREWORK_STAR_LIGHT_BLUE("Firework Star Light Blue", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.LIGHT_BLUE)),
-	FIREWORK_STAR_YELLOW("Firework Star Yellow", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.YELLOW)),
-	FIREWORK_STAR_LIME("Firework Star Lime", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.LIME)),
-	FIREWORK_STAR_PINK("Firework Star Pink", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.PINK)),
-	FIREWORK_STAR_GRAY("Firework Star Gray", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.GRAY)),
-	FIREWORK_STAR_LIGHT_GRAY("Firework Star Light Gray", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.LIGHT_GRAY)),
-	FIREWORK_STAR_CYAN("Firework Star Cyan", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.CYAN)),
-	FIREWORK_STAR_PURPLE("Firework Star Purple", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.PURPLE)),
-	FIREWORK_STAR_BLUE("Firework Star Blue", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.BLUE)),
-	FIREWORK_STAR_BROWN("Firework Star Brown", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.BROWN)),
-	FIREWORK_STAR_GREEN("Firework Star Green", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.GREEN)),
-	FIREWORK_STAR_RED("Firework Star Red", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.RED)),
-	FIREWORK_STAR_BLACK("Firework Star Black", Dimension.OVERWORLD, 2, createFireworkStar(DyeColor.BLACK)),
-	FIREWORK_ROCKET_WHITE("Firework Rocket White", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.WHITE)),
-	FIREWORK_ROCKET_ORANGE("Firework Rocket Orange", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.ORANGE)),
-	FIREWORK_ROCKET_MAGENTA("Firework Rocket Magenta", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.MAGENTA)),
-	FIREWORK_ROCKET_LIGHT_BLUE("Firework Rocket Light Blue", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.LIGHT_BLUE)),
-	FIREWORK_ROCKET_YELLOW("Firework Rocket Yellow", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.YELLOW)),
-	FIREWORK_ROCKET_LIME("Firework Rocket Lime", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.LIME)),
-	FIREWORK_ROCKET_PINK("Firework Rocket Pink", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.PINK)),
-	FIREWORK_ROCKET_GRAY("Firework Rocket Gray", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.GRAY)),
-	FIREWORK_ROCKET_LIGHT_GRAY("Firework Rocket Light Gray", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.LIGHT_GRAY)),
-	FIREWORK_ROCKET_CYAN("Firework Rocket Cyan", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.CYAN)),
-	FIREWORK_ROCKET_PURPLE("Firework Rocket Purple", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.PURPLE)),
-	FIREWORK_ROCKET_BLUE("Firework Rocket Blue", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.BLUE)),
-	FIREWORK_ROCKET_BROWN("Firework Rocket Brown", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.BROWN)),
-	FIREWORK_ROCKET_GREEN("Firework Rocket Green", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.GREEN)),
-	FIREWORK_ROCKET_RED("Firework Rocket Red", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.RED)),
-	FIREWORK_ROCKET_BLACK("Firework Rocket Black", Dimension.OVERWORLD, 2, createFireworkRocket(DyeColor.BLACK)),
+
 	SHIELD("Shield", Dimension.OVERWORLD, 2, new ItemStack(Material.SHIELD)),
 	CROSSBOW("Crossbow", Dimension.OVERWORLD, 2, new ItemStack(Material.CROSSBOW)),
 	BOW("Bow", Dimension.OVERWORLD, 2, new ItemStack(Material.BOW)),
 	MAP_EMPTY("Empty Map", Dimension.OVERWORLD, 2, new ItemStack(Material.MAP)),
 	FILLED_MAP("Map", Dimension.OVERWORLD, 2, new ItemStack(Material.FILLED_MAP)),
-	// Potions
-	POTION_OF_REGENERATION("Potion of Regeneration", Dimension.OVERWORLD, 2, createPotion(PotionType.REGENERATION)),
-	POTION_OF_REGENERATION_II("Potion of Regeneration II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_REGENERATION)),
-	POTION_OF_SWIFTNESS("Potion of Swiftness", Dimension.OVERWORLD, 2, createPotion(PotionType.SWIFTNESS)),
-	POTION_OF_SWIFTNESS_II("Potion of Swiftness II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_SWIFTNESS)),
-	POTION_OF_FIRE_RESISTANCE("Potion of Fire Resistance", Dimension.OVERWORLD, 2, createPotion(PotionType.FIRE_RESISTANCE)),
-	POTION_OF_HEALING("Potion of Healing", Dimension.OVERWORLD, 2, createPotion(PotionType.HEALING)),
-	POTION_OF_HEALING_II("Potion of Healing II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_HEALING)),
-	POTION_OF_NIGHT_VISION("Potion of Night Vision", Dimension.OVERWORLD, 2, createPotion(PotionType.NIGHT_VISION)),
-	POTION_OF_STRENGTH("Potion of Strength", Dimension.OVERWORLD, 2, createPotion(PotionType.STRENGTH)),
-	POTION_OF_STRENGTH_II("Potion of Strength II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_STRENGTH)),
-	POTION_OF_LEAPING("Potion of Leaping", Dimension.OVERWORLD, 2, createPotion(PotionType.LEAPING)),
-	POTION_OF_LEAPING_II("Potion of Leaping II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_LEAPING)),
-	POTION_OF_WATER_BREATHING("Potion of Water Breathing", Dimension.OVERWORLD, 2, createPotion(PotionType.WATER_BREATHING)),
-	POTION_OF_INVISIBILITY("Potion of Invisibility", Dimension.OVERWORLD, 2, createPotion(PotionType.INVISIBILITY)),
-	POTION_OF_SLOW_FALLING("Potion of Slow Falling", Dimension.OVERWORLD, 2, createPotion(PotionType.SLOW_FALLING)),
-	POTION_OF_POISON("Potion of Poison", Dimension.OVERWORLD, 2, createPotion(PotionType.POISON)),
-	POTION_OF_POISON_II("Potion of Poison II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_POISON)),
-	POTION_OF_WEAKNESS("Potion of Weakness", Dimension.OVERWORLD, 2, createPotion(PotionType.WEAKNESS)),
-	POTION_OF_SLOWNESS("Potion of Slowness", Dimension.OVERWORLD, 2, createPotion(PotionType.SLOWNESS)),
-	POTION_OF_SLOWNESS_IV("Potion of Slowness IV", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_SLOWNESS)), // Note: STRONG_SLOWNESS used as no Slowness IV exists
-	POTION_OF_HARMING("Potion of Harming", Dimension.OVERWORLD, 2, createPotion(PotionType.HARMING)),
-	POTION_OF_HARMING_II("Potion of Harming II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_HARMING)),
-	POTION_OF_THE_TURTLE_MASTER("Potion of the Turtle Master", Dimension.OVERWORLD, 2, createPotion(PotionType.TURTLE_MASTER)),
-	POTION_OF_THE_TURTLE_MASTER_II("Potion of the Turtle Master II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_TURTLE_MASTER)),
 
-	// Splash Potions
-	SPLASH_POTION_OF_REGENERATION("Splash Potion of Regeneration", Dimension.OVERWORLD, 2, createPotion(PotionType.REGENERATION)),
-	SPLASH_POTION_OF_REGENERATION_II("Splash Potion of Regeneration II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_REGENERATION)),
-	SPLASH_POTION_OF_SWIFTNESS("Splash Potion of Swiftness", Dimension.OVERWORLD, 2, createPotion(PotionType.SWIFTNESS)),
-	SPLASH_POTION_OF_SWIFTNESS_II("Splash Potion of Swiftness II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_SWIFTNESS)),
-	SPLASH_POTION_OF_FIRE_RESISTANCE("Splash Potion of Fire Resistance", Dimension.OVERWORLD, 2, createPotion(PotionType.FIRE_RESISTANCE)),
-	SPLASH_POTION_OF_HEALING("Splash Potion of Healing", Dimension.OVERWORLD, 2, createPotion(PotionType.HEALING)),
-	SPLASH_POTION_OF_HEALING_II("Splash Potion of Healing II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_HEALING)),
-	SPLASH_POTION_OF_NIGHT_VISION("Splash Potion of Night Vision", Dimension.OVERWORLD, 2, createPotion(PotionType.NIGHT_VISION)),
-	SPLASH_POTION_OF_STRENGTH("Splash Potion of Strength", Dimension.OVERWORLD, 2, createPotion(PotionType.STRENGTH)),
-	SPLASH_POTION_OF_STRENGTH_II("Splash Potion of Strength II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_STRENGTH)),
-	SPLASH_POTION_OF_LEAPING("Splash Potion of Leaping", Dimension.OVERWORLD, 2, createPotion(PotionType.LEAPING)),
-	SPLASH_POTION_OF_LEAPING_II("Splash Potion of Leaping II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_LEAPING)),
-	SPLASH_POTION_OF_WATER_BREATHING("Splash Potion of Water Breathing", Dimension.OVERWORLD, 2, createPotion(PotionType.WATER_BREATHING)),
-	SPLASH_POTION_OF_INVISIBILITY("Splash Potion of Invisibility", Dimension.OVERWORLD, 2, createPotion(PotionType.INVISIBILITY)),
-	SPLASH_POTION_OF_SLOW_FALLING("Splash Potion of Slow Falling", Dimension.OVERWORLD, 2, createPotion(PotionType.SLOW_FALLING)),
-	SPLASH_POTION_OF_POISON("Splash Potion of Poison", Dimension.OVERWORLD, 2, createPotion(PotionType.POISON)),
-	SPLASH_POTION_OF_POISON_II("Splash Potion of Poison II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_POISON)),
-	SPLASH_POTION_OF_WEAKNESS("Splash Potion of Weakness", Dimension.OVERWORLD, 2, createPotion(PotionType.WEAKNESS)),
-	SPLASH_POTION_OF_SLOWNESS("Splash Potion of Slowness", Dimension.OVERWORLD, 2, createPotion(PotionType.SLOWNESS)),
-	SPLASH_POTION_OF_SLOWNESS_IV("Splash Potion of Slowness IV", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_SLOWNESS)), // Note: STRONG_SLOWNESS used as no Slowness IV exists
-	SPLASH_POTION_OF_HARMING("Splash Potion of Harming", Dimension.OVERWORLD, 2, createPotion(PotionType.HARMING)),
-	SPLASH_POTION_OF_HARMING_II("Splash Potion of Harming II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_HARMING)),
-	SPLASH_POTION_OF_THE_TURTLE_MASTER("Splash Potion of the Turtle Master", Dimension.OVERWORLD, 2, createPotion(PotionType.TURTLE_MASTER)),
-	SPLASH_POTION_OF_THE_TURTLE_MASTER_II("Splash Potion of the Turtle Master II", Dimension.OVERWORLD, 2, createPotion(PotionType.STRONG_TURTLE_MASTER)),
-
-	// Arrows
-	ARROW_OF_FIRE_RESISTANCE("Arrow of Fire Resistance", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.FIRE_RESISTANCE)),
-	ARROW_OF_HARMING("Arrow of Harming", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.HARMING)),
-	ARROW_OF_HARMING_II("Arrow of Harming II", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.STRONG_HARMING)),
-	ARROW_OF_HEALING("Arrow of Healing", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.HEALING)),
-	ARROW_OF_HEALING_II("Arrow of Healing II", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.STRONG_HEALING)),
-	ARROW_OF_INVISIBILITY("Arrow of Invisibility", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.INVISIBILITY)),
-	ARROW_OF_LEAPING("Arrow of Leaping", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.LEAPING)),
-	ARROW_OF_LEAPING_II("Arrow of Leaping II", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.STRONG_LEAPING)),
-	ARROW_OF_NIGHT_VISION("Arrow of Night Vision", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.NIGHT_VISION)),
-	ARROW_OF_POISON("Arrow of Poison", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.POISON)),
-	ARROW_OF_POISON_II("Arrow of Poison II", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.STRONG_POISON)),
-	ARROW_OF_REGENERATION("Arrow of Regeneration", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.REGENERATION)),
-	ARROW_OF_REGENERATION_II("Arrow of Regeneration II", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.STRONG_REGENERATION)),
-	ARROW_OF_SLOW_FALLING("Arrow of Slow Falling", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.SLOW_FALLING)),
-	ARROW_OF_SLOWNESS("Arrow of Slowness", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.SLOWNESS)),
-	ARROW_OF_SLOWNESS_IV("Arrow of Slowness IV", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.STRONG_SLOWNESS)), // Note: STRONG_SLOWNESS used as no Slowness IV exists
-	ARROW_OF_STRENGTH("Arrow of Strength", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.STRENGTH)),
-	ARROW_OF_STRENGTH_II("Arrow of Strength II", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.STRONG_STRENGTH)),
-	ARROW_OF_SWIFTNESS("Arrow of Swiftness", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.SWIFTNESS)),
-	ARROW_OF_SWIFTNESS_II("Arrow of Swiftness II", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.STRONG_SWIFTNESS)),
-	ARROW_OF_THE_TURTLE_MASTER("Arrow of the Turtle Master", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.TURTLE_MASTER)),
-	ARROW_OF_THE_TURTLE_MASTER_II("Arrow of the Turtle Master II", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.STRONG_TURTLE_MASTER)),
-	ARROW_OF_WATER_BREATHING("Arrow of Water Breathing", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.WATER_BREATHING)),
-	ARROW_OF_WEAKNESS("Arrow of Weakness", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.WEAKNESS)),
-	SPECTRAL_ARROW("Spectral Arrow", Dimension.OVERWORLD, 2, new ItemStack(Material.SPECTRAL_ARROW)),
-	TIPPED_ARROW_AWKWARD("Tipped Arrow (Awkward)", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.AWKWARD)),
-	TIPPED_ARROW_MUNDANE("Tipped Arrow (Mundane)", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.MUNDANE)),
-	TIPPED_ARROW_THICK("Tipped Arrow (Thick)", Dimension.OVERWORLD, 2, createTippedArrow(PotionType.THICK)),
-	SPLASH_WATER_BOTTLE("Splash Water Bottle", Dimension.OVERWORLD, 2, createSplashWaterBottle()),
-	SPLASH_AWKWARD_POTION("Splash Awkward Potion", Dimension.OVERWORLD, 2, createPotion(PotionType.AWKWARD)),
-	SPLASH_MUNDANE_POTION("Splash Mundane Potion", Dimension.OVERWORLD, 2, createPotion(PotionType.MUNDANE)),
-	SPLASH_THICK_POTION("Splash Thick Potion", Dimension.OVERWORLD, 2, createPotion(PotionType.THICK)),
 	MINECART_WITH_FURNACE("Minecart with Furnace", Dimension.OVERWORLD, 2, new ItemStack(Material.FURNACE_MINECART)),
 	BOOK_AND_QUILL("Book and Quill", Dimension.OVERWORLD, 2, new ItemStack(Material.WRITABLE_BOOK)),
 	WRITTEN_BOOK("Written Book", Dimension.OVERWORLD, 2, new ItemStack(Material.WRITTEN_BOOK)),
@@ -1130,29 +1015,6 @@ public enum ItemEntry {
 	SHELTER_POTTERY_SHERD("Shelter Pottery Sherd", Dimension.OVERWORLD, 3, new ItemStack(Material.SHELTER_POTTERY_SHERD)),
 	SKULL_POTTERY_SHERD("Skull Pottery Sherd", Dimension.OVERWORLD, 3, new ItemStack(Material.SKULL_POTTERY_SHERD)),
 	SNORT_POTTERY_SHERD("Snort Pottery Sherd", Dimension.OVERWORLD, 3, new ItemStack(Material.SNORT_POTTERY_SHERD)),
-	ANGLER_DECORATED_POT("Angler Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("angler")),
-	ARCHER_DECORATED_POT("Archer Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("archer")),
-	ARMS_UP_DECORATED_POT("Arms Up Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("arms_up")),
-	BLADE_DECORATED_POT("Blade Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("blade")),
-	BREWER_DECORATED_POT("Brewer Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("brewer")),
-	BURN_DECORATED_POT("Burn Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("burn")),
-	DANGER_DECORATED_POT("Danger Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("danger")),
-	EXPLORER_DECORATED_POT("Explorer Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("explorer")),
-	FLOW_DECORATED_POT("Flow Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("flow")),
-	FRIEND_DECORATED_POT("Friend Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("friend")),
-	GUSTER_DECORATED_POT("Guster Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("guster")),
-	HEART_DECORATED_POT("Heart Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("heart")),
-	HEARTBREAK_DECORATED_POT("Heartbreak Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("heartbreak")),
-	HOWL_DECORATED_POT("Howl Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("howl")),
-	MINER_DECORATED_POT("Miner Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("miner")),
-	MOURNER_DECORATED_POT("Mourner Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("mourner")),
-	PLENTY_DECORATED_POT("Plenty Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("plenty")),
-	PRIZE_DECORATED_POT("Prize Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("prize")),
-	SCRAPE_DECORATED_POT("Scrape Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("scrape")),
-	SHEAF_DECORATED_POT("Sheaf Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("sheaf")),
-	SHELTER_DECORATED_POT("Shelter Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("shelter")),
-	SKULL_DECORATED_POT("Skull Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("skull")),
-	SNORT_DECORATED_POT("Snort Decorated Pot", Dimension.OVERWORLD, 3, createDecoratedPot("snort")),
 	BRUSH("Brush", Dimension.OVERWORLD, 3, new ItemStack(Material.BRUSH)),
 	RECOVERY_COMPASS("Recovery Compass", Dimension.OVERWORLD, 3, new ItemStack(Material.RECOVERY_COMPASS)),
 	ECHO_SHARD("Echo Shard", Dimension.OVERWORLD, 3, new ItemStack(Material.ECHO_SHARD)),
@@ -1184,48 +1046,6 @@ public enum ItemEntry {
 	SHULKER_BOX_RED("Red Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.RED_SHULKER_BOX)),
 	SHULKER_BOX_WHITE("White Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.WHITE_SHULKER_BOX)),
 	SHULKER_BOX_YELLOW("Yellow Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.YELLOW_SHULKER_BOX)),
-	ENCHANTED_BOOK_AQUA_AFFINITY_I("Enchanted Book (Aqua Affinity I)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.AQUA_AFFINITY, 1)),
-	ENCHANTED_BOOK_BANE_OF_ARTHROPODS_V("Enchanted Book (Bane of Arthropods V)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.BANE_OF_ARTHROPODS, 5)),
-	ENCHANTED_BOOK_BLAST_PROTECTION_IV("Enchanted Book (Blast Protection IV)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.BLAST_PROTECTION, 4)),
-	ENCHANTED_BOOK_CHANNELING_I("Enchanted Book (Channeling I)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.CHANNELING, 1)),
-	ENCHANTED_BOOK_CURSE_OF_BINDING_I("Enchanted Book (Curse of Binding I)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.BINDING_CURSE, 1)),
-	ENCHANTED_BOOK_CURSE_OF_VANISHING_I("Enchanted Book (Curse of Vanishing I)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.VANISHING_CURSE, 1)),
-	ENCHANTED_BOOK_DEPTH_STRIDER_III("Enchanted Book (Depth Strider III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.DEPTH_STRIDER, 3)),
-	ENCHANTED_BOOK_EFFICIENCY_V("Enchanted Book (Efficiency V)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.EFFICIENCY, 5)),
-	ENCHANTED_BOOK_FEATHER_FALLING_IV("Enchanted Book (Feather Falling IV)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.FEATHER_FALLING, 4)),
-	ENCHANTED_BOOK_FIRE_ASPECT_II("Enchanted Book (Fire Aspect II)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.FIRE_ASPECT, 2)),
-	ENCHANTED_BOOK_FIRE_PROTECTION_IV("Enchanted Book (Fire Protection IV)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.FIRE_PROTECTION, 4)),
-	ENCHANTED_BOOK_FLAME_I("Enchanted Book (Flame I)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.FLAME, 1)),
-	ENCHANTED_BOOK_FORTUNE_III("Enchanted Book (Fortune III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.FORTUNE, 3)),
-	ENCHANTED_BOOK_FROST_WALKER_II("Enchanted Book (Frost Walker II)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.FROST_WALKER, 2)),
-	ENCHANTED_BOOK_IMPALING_V("Enchanted Book (Impaling V)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.IMPALING, 5)),
-	ENCHANTED_BOOK_INFINITY_I("Enchanted Book (Infinity I)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.INFINITY, 1)),
-	ENCHANTED_BOOK_KNOCKBACK_II("Enchanted Book (Knockback II)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.KNOCKBACK, 2)),
-	ENCHANTED_BOOK_LOOTING_III("Enchanted Book (Looting III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.LOOTING, 3)),
-	ENCHANTED_BOOK_LOYALTY_III("Enchanted Book (Loyalty III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.LOYALTY, 3)),
-	ENCHANTED_BOOK_LUCK_OF_THE_SEA_III("Enchanted Book (Luck of the Sea III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.LUCK_OF_THE_SEA, 3)),
-	ENCHANTED_BOOK_LURE_III("Enchanted Book (Lure III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.LURE, 3)),
-	ENCHANTED_BOOK_MENDING_I("Enchanted Book (Mending I)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.MENDING, 1)),
-	ENCHANTED_BOOK_MULTISHOT_I("Enchanted Book (Multishot I)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.MULTISHOT, 1)),
-	ENCHANTED_BOOK_PIERCING_IV("Enchanted Book (Piercing IV)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.PIERCING, 4)),
-	ENCHANTED_BOOK_POWER_V("Enchanted Book (Power V)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.POWER, 5)),
-	ENCHANTED_BOOK_PROJECTILE_PROTECTION_IV("Enchanted Book (Projectile Protection IV)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.PROJECTILE_PROTECTION, 4)),
-	ENCHANTED_BOOK_PROTECTION_IV("Enchanted Book (Protection IV)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.PROTECTION, 4)),
-	ENCHANTED_BOOK_PUNCH_II("Enchanted Book (Punch II)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.PUNCH, 2)),
-	ENCHANTED_BOOK_QUICK_CHARGE_III("Enchanted Book (Quick Charge III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.QUICK_CHARGE, 3)),
-	ENCHANTED_BOOK_RESPIRATION_III("Enchanted Book (Respiration III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.RESPIRATION, 3)),
-	ENCHANTED_BOOK_RIPTIDE_III("Enchanted Book (Riptide III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.RIPTIDE, 3)),
-	ENCHANTED_BOOK_SHARPNESS_V("Enchanted Book (Sharpness V)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.SHARPNESS, 5)),
-	ENCHANTED_BOOK_SILK_TOUCH_I("Enchanted Book (Silk Touch I)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.SILK_TOUCH, 1)),
-	ENCHANTED_BOOK_SMITE_V("Enchanted Book (Smite V)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.SMITE, 5)),
-	ENCHANTED_BOOK_SOUL_SPEED_III("Enchanted Book (Soul Speed III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.SOUL_SPEED, 3)),
-	ENCHANTED_BOOK_SWEEPING_EDGE_III("Enchanted Book (Sweeping Edge III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.SWEEPING_EDGE, 3)),
-	ENCHANTED_BOOK_SWIFT_SNEAK_III("Enchanted Book (Swift Sneak III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.SWIFT_SNEAK, 3)),
-	ENCHANTED_BOOK_THORNS_III("Enchanted Book (Thorns III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.THORNS, 3)),
-	ENCHANTED_BOOK_UNBREAKING_III("Enchanted Book (Unbreaking III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.UNBREAKING, 3)),
-	ENCHANTED_BOOK_WIND_BURST_III("Enchanted Book (Wind Burst III)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.WIND_BURST, 3)),
-	ENCHANTED_BOOK_BREACH_IV("Enchanted Book (Breach IV)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.BREACH, 4)),
-	ENCHANTED_BOOK_DENSITY_V("Enchanted Book (Density V)", Dimension.OVERWORLD, 4, createEnchantedBook(Enchantment.DENSITY, 5)),
 	BURIED_TREASURE_MAP("Buried Treasure Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
 	DESERT_VILLAGE_MAP("Desert Village Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
 	JUNGLE_EXPLORER_MAP("Jungle Explorer Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
@@ -1242,7 +1062,6 @@ public enum ItemEntry {
 	SCULK_SENSOR("Sculk Sensor", Dimension.OVERWORLD, 4, new ItemStack(Material.SCULK_SENSOR)),
 	SCULK_CATALYST("Sculk Catalyst", Dimension.OVERWORLD, 4, new ItemStack(Material.SCULK_CATALYST)),
 	SCULK_SHRIEKER("Sculk Shrieker", Dimension.OVERWORLD, 4, new ItemStack(Material.SCULK_SHRIEKER)),
-	OMINOUS_BANNER("Ominous Banner", Dimension.OVERWORLD, 4, createOminousBanner()),
 	WIND_CHARGE_ITEM("Wind Charge", Dimension.OVERWORLD, 4, new ItemStack(Material.WIND_CHARGE)),
 	BREEZE_ROD("Breeze Rod", Dimension.OVERWORLD, 4, new ItemStack(Material.BREEZE_ROD)),
 	HEAVY_CORE("Heavy Core", Dimension.OVERWORLD, 4, new ItemStack(Material.HEAVY_CORE)),
@@ -1428,42 +1247,6 @@ public enum ItemEntry {
 	SILENCE_ARMOR_TRIM("Silence Armor Trim", Dimension.END, 4, new ItemStack(Material.SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE)),
 	NETHERITE_UPGRADE_END("Netherite Upgrade", Dimension.END, 4, new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE)),
 
-	// Potions
-	WATER_BOTTLE("Water Bottle", Dimension.OVERWORLD, 1, createPotion(PotionType.WATER)),
-	AWKWARD_POTION("Awkward Potion", Dimension.OVERWORLD, 2, createPotion(PotionType.AWKWARD)),
-	MUNDANE_POTION("Mundane Potion", Dimension.OVERWORLD, 2, createPotion(PotionType.MUNDANE)),
-	THICK_POTION("Thick Potion", Dimension.OVERWORLD, 2, createPotion(PotionType.THICK)),
-
-	// Lingering Potions
-	LINGERING_WATER_BOTTLE("Lingering Water Bottle", Dimension.END, 3, createLingeringWaterBottle()),
-	LINGERING_AWKWARD_POTION("Lingering Awkward Potion", Dimension.END, 3, createPotion(PotionType.AWKWARD, true)),
-	LINGERING_MUNDANE_POTION("Lingering Mundane Potion", Dimension.END, 3, createPotion(PotionType.MUNDANE, true)),
-	LINGERING_THICK_POTION("Lingering Thick Potion", Dimension.END, 3, createPotion(PotionType.THICK, true)),
-	LINGERING_POTION_OF_REGENERATION("Lingering Potion of Regeneration", Dimension.END, 3, createPotion(PotionType.REGENERATION, true)),
-	LINGERING_POTION_OF_REGENERATION_II("Lingering Potion of Regeneration II", Dimension.END, 3, createPotion(PotionType.REGENERATION,true)),
-	LINGERING_POTION_OF_SWIFTNESS("Lingering Potion of Swiftness", Dimension.END, 3, createPotion(PotionType.SWIFTNESS, true)),
-	LINGERING_POTION_OF_SWIFTNESS_II("Lingering Potion of Swiftness II", Dimension.END, 3, createPotion(PotionType.SWIFTNESS,true)),
-	LINGERING_POTION_OF_FIRE_RESISTANCE("Lingering Potion of Fire Resistance", Dimension.END, 3, createPotion(PotionType.FIRE_RESISTANCE, true)),
-	LINGERING_POTION_OF_HEALING("Lingering Potion of Healing", Dimension.END, 3, createPotion(PotionType.HEALING, true)),
-	LINGERING_POTION_OF_HEALING_II("Lingering Potion of Healing II", Dimension.END, 3, createPotion(PotionType.STRONG_HEALING,true)),
-	LINGERING_POTION_OF_NIGHT_VISION("Lingering Potion of Night Vision", Dimension.END, 3, createPotion(PotionType.NIGHT_VISION, true)),
-	LINGERING_POTION_OF_STRENGTH("Lingering Potion of Strength", Dimension.END, 3, createPotion(PotionType.STRENGTH, true)),
-	LINGERING_POTION_OF_STRENGTH_II("Lingering Potion of Strength II", Dimension.END, 3, createPotion(PotionType.STRENGTH,true)),
-	LINGERING_POTION_OF_LEAPING("Lingering Potion of Leaping", Dimension.END, 3, createPotion(PotionType.LEAPING, true)),
-	LINGERING_POTION_OF_LEAPING_II("Lingering Potion of Leaping II", Dimension.END, 3, createPotion(PotionType.LEAPING,true)),
-	LINGERING_POTION_OF_WATER_BREATHING("Lingering Potion of Water Breathing", Dimension.END, 3, createPotion(PotionType.WATER_BREATHING, true)),
-	LINGERING_POTION_OF_INVISIBILITY("Lingering Potion of Invisibility", Dimension.END, 3, createPotion(PotionType.INVISIBILITY, true)),
-	LINGERING_POTION_OF_SLOW_FALLING("Lingering Potion of Slow Falling", Dimension.END, 3, createPotion(PotionType.SLOW_FALLING, true)),
-	LINGERING_POTION_OF_POISON("Lingering Potion of Poison", Dimension.END, 3, createPotion(PotionType.POISON, true)),
-	LINGERING_POTION_OF_POISON_II("Lingering Potion of Poison II", Dimension.END, 3, createPotion(PotionType.POISON,true)),
-	LINGERING_POTION_OF_WEAKNESS("Lingering Potion of Weakness", Dimension.END, 3, createPotion(PotionType.WEAKNESS, true)),
-	LINGERING_POTION_OF_SLOWNESS("Lingering Potion of Slowness", Dimension.END, 3, createPotion(PotionType.SLOWNESS, true)),
-	LINGERING_POTION_OF_SLOWNESS_IV("Lingering Potion of Slowness IV", Dimension.END, 3, createPotion(PotionType.SLOWNESS,true)), // Assuming level II for Slowness IV
-	LINGERING_POTION_OF_HARMING("Lingering Potion of Harming", Dimension.END, 3, createPotion(PotionType.HARMING, true)),
-	LINGERING_POTION_OF_HARMING_II("Lingering Potion of Harming II", Dimension.END, 3, createPotion(PotionType.STRONG_HARMING,true)),
-	LINGERING_POTION_OF_THE_TURTLE_MASTER("Lingering Potion of the Turtle Master", Dimension.END, 3, createPotion(PotionType.TURTLE_MASTER, true)),
-	LINGERING_POTION_OF_THE_TURTLE_MASTER_II("Lingering Potion of the Turtle Master II", Dimension.END, 3, createPotion(PotionType.TURTLE_MASTER,true)),
-
 	// Generic Shulker Box (purple base)
 	SHULKER_BOX("Shulker Box", Dimension.END, 3, new ItemStack(Material.SHULKER_BOX));
 
@@ -1486,104 +1269,6 @@ public enum ItemEntry {
 	}
 
 	// Helper methods for creating ItemStacks with metadata
-
-	private static ItemStack createPotion(PotionType type) {
-		return createPotion(type, false);
-	}
-
-	private static ItemStack createPotion(PotionType type, boolean lingering) {
-		Material material = lingering ? Material.LINGERING_POTION : Material.POTION;
-		ItemStack potion = new ItemStack(material);
-		PotionMeta meta = (PotionMeta) potion.getItemMeta();
-
-		meta.setBasePotionType(type);
-
-		potion.setItemMeta(meta);
-		return potion;
-	}
-
-	private static ItemStack createSplashWaterBottle() {
-		ItemStack potion = new ItemStack(Material.SPLASH_POTION);
-		PotionMeta meta = (PotionMeta) potion.getItemMeta();
-		meta.setBasePotionType(PotionType.WATER);
-		potion.setItemMeta(meta);
-		return potion;
-	}
-
-	private static ItemStack createLingeringWaterBottle() {
-		ItemStack potion = new ItemStack(Material.LINGERING_POTION);
-		PotionMeta meta = (PotionMeta) potion.getItemMeta();
-		meta.setBasePotionType(PotionType.WATER);
-		potion.setItemMeta(meta);
-		return potion;
-	}
-
-	private static ItemStack createTippedArrow(PotionType type) {
-		ItemStack arrow = new ItemStack(Material.TIPPED_ARROW);
-		PotionMeta meta = (PotionMeta) arrow.getItemMeta();
-
-		meta.setBasePotionType(type);
-
-		arrow.setItemMeta(meta);
-		return arrow;
-	}
-
-	private static ItemStack createEnchantedBook(Enchantment enchantment, int level) {
-		ItemStack book = new ItemStack(Material.ENCHANTED_BOOK);
-		EnchantmentStorageMeta meta = (EnchantmentStorageMeta) book.getItemMeta();
-		meta.addStoredEnchant(enchantment, level, true);
-		book.setItemMeta(meta);
-		return book;
-	}
-
-	private static ItemStack createFireworkStar(DyeColor color) {
-		ItemStack star = new ItemStack(Material.FIREWORK_STAR);
-		FireworkEffect effect = FireworkEffect.builder()
-				.withColor(Color.fromRGB(color.getColor().asRGB()))
-				.build();
-
-		FireworkEffectMeta meta = (FireworkEffectMeta) star.getItemMeta();
-		meta.setEffect(effect);
-		star.setItemMeta(meta);
-		return star;
-	}
-
-	private static ItemStack createFireworkRocket(DyeColor dyeColor) {
-		ItemStack rocket = new ItemStack(Material.FIREWORK_ROCKET);
-		FireworkMeta meta = (FireworkMeta) rocket.getItemMeta();
-		Color color = dyeColor.getColor();
-		FireworkEffect effect = FireworkEffect.builder()
-				.withColor(color)
-				.with(FireworkEffect.Type.BALL)
-				.build();
-		meta.addEffect(effect);
-		meta.setPower(1);
-		rocket.setItemMeta(meta);
-		return rocket;
-	}
-
-	private static ItemStack createDecoratedPot(String displayName) {
-		ItemStack pot = new ItemStack(Material.DECORATED_POT);
-		ItemMeta meta = pot.getItemMeta();
-		meta.displayName(Component.text(displayName));
-		pot.setItemMeta(meta);
-		return pot;
-	}
-
-	private static ItemStack createOminousBanner() {
-		ItemStack banner = new ItemStack(Material.WHITE_BANNER);
-		BannerMeta meta = (BannerMeta) banner.getItemMeta();
-		meta.addPattern(new Pattern(DyeColor.CYAN, PatternType.RHOMBUS));
-		meta.addPattern(new Pattern(DyeColor.LIGHT_GRAY, PatternType.TRIANGLE_BOTTOM));
-		meta.addPattern(new Pattern(DyeColor.GRAY, PatternType.STRIPE_CENTER));
-		meta.addPattern(new Pattern(DyeColor.LIGHT_GRAY, PatternType.BORDER));
-		meta.addPattern(new Pattern(DyeColor.BLACK, PatternType.STRIPE_LEFT));
-		meta.addPattern(new Pattern(DyeColor.LIGHT_GRAY, PatternType.STRIPE_RIGHT));
-		meta.addPattern(new Pattern(DyeColor.LIGHT_GRAY, PatternType.CIRCLE));
-		meta.addPattern(new Pattern(DyeColor.BLACK, PatternType.BORDER));
-		banner.setItemMeta(meta);
-		return banner;
-	}
 
 	public static List<ItemEntry> getItemsByDifficultyAndDimension(int minDifficulty, int maxDifficulty, Dimension targetDimension) {
 		List<ItemEntry> filteredItems = new ArrayList<>();
