@@ -29,6 +29,8 @@ public final class ForceItem extends JavaPlugin {
 	private DatabaseManager database;
 	private MTimerAPI timer;
 
+	private GameManager gameManager;
+
 	private TestTable table;
 
 	public static DatabaseManager getDatabase() {
@@ -48,6 +50,7 @@ public final class ForceItem extends JavaPlugin {
 		registerListeners();
 		setupDatabase();
 		setupTimer();
+		gameManager = new GameManager();
 	}
 
 	private void registerCommands() {
