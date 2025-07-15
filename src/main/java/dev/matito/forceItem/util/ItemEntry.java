@@ -1292,15 +1292,33 @@ public enum ItemEntry {
 				.toArray(ItemEntry[]::new);
 	}
 
+	public static ItemEntry[] getItemsWithoutDimension(Dimension dimension) {
+		return java.util.Arrays.stream(values())
+				.filter(item -> item.getDimension() != dimension)
+				.toArray(ItemEntry[]::new);
+	}
+
 	public static ItemEntry[] getItemsByDifficulty(int difficulty) {
 		return java.util.Arrays.stream(values())
 				.filter(item -> item.getDifficulty() == difficulty)
 				.toArray(ItemEntry[]::new);
 	}
 
+	public static ItemEntry[] getItemsWithoutDifficulty(int difficulty) {
+		return java.util.Arrays.stream(values())
+				.filter(item -> item.getDifficulty() != difficulty)
+				.toArray(ItemEntry[]::new);
+	}
+
 	public static ItemEntry[] getItemsByDimensionAndDifficulty(Dimension dimension, int difficulty) {
 		return java.util.Arrays.stream(values())
 				.filter(item -> item.getDimension() == dimension && item.getDifficulty() == difficulty)
+				.toArray(ItemEntry[]::new);
+	}
+
+	public static ItemEntry[] getItemsWithoutDimensionAndDifficulty(Dimension dimension, int difficulty) {
+		return java.util.Arrays.stream(values())
+				.filter(item -> item.getDimension() != dimension && item.getDifficulty() != difficulty)
 				.toArray(ItemEntry[]::new);
 	}
 
@@ -1315,13 +1333,28 @@ public enum ItemEntry {
 		return items.length > 0 ? items[(int) (Math.random() * items.length)] : null;
 	}
 
+	public static ItemEntry getRandomItemWithoutDimension(Dimension dimension) {
+		ItemEntry[] items = getItemsWithoutDimension(dimension);
+		return items.length > 0 ? items[(int) (Math.random() * items.length)] : null;
+	}
+
 	public static ItemEntry getRandomItemByDifficulty(int difficulty) {
 		ItemEntry[] items = getItemsByDifficulty(difficulty);
 		return items.length > 0 ? items[(int) (Math.random() * items.length)] : null;
 	}
 
+	public static ItemEntry getRandomItemWithoutDifficulty(int difficulty) {
+		ItemEntry[] items = getItemsWithoutDifficulty(difficulty);
+		return items.length > 0 ? items[(int) (Math.random() * items.length)] : null;
+	}
+
 	public static ItemEntry getRandomItemByDimensionAndDifficulty(Dimension dimension, int difficulty) {
 		ItemEntry[] items = getItemsByDimensionAndDifficulty(dimension, difficulty);
+		return items.length > 0 ? items[(int) (Math.random() * items.length)] : null;
+	}
+
+	public static ItemEntry getRandomItemWithoutDimensionAndDifficulty(Dimension dimension, int difficulty) {
+		ItemEntry[] items = getItemsWithoutDimensionAndDifficulty(dimension, difficulty);
 		return items.length > 0 ? items[(int) (Math.random() * items.length)] : null;
 	}
 }
