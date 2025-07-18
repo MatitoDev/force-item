@@ -3,6 +3,7 @@ package dev.matito.forceItem;
 import de.mineking.databaseutils.DatabaseManager;
 import de.miraculixx.timer.api.MTimerAPI;
 import dev.matito.forceItem.commands.AddPlayerCommand;
+import dev.matito.forceItem.commands.ResetCommand;
 import dev.matito.forceItem.commands.StartCommand;
 import dev.matito.forceItem.commands.TestCommand;
 import dev.matito.forceItem.database.PlayerTypeMapper;
@@ -59,6 +60,7 @@ public final class ForceItem extends JavaPlugin {
 		TestCommand.register();
 		StartCommand.register();
 		AddPlayerCommand.register();
+		ResetCommand.register();
 	}
 
 	private void registerListeners() {
