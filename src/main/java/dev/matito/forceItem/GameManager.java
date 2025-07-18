@@ -7,7 +7,7 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
-import java.util.*;
+import java.util.Random;
 
 @Getter
 public class GameManager {
@@ -55,8 +55,8 @@ public class GameManager {
 	}
 
 	public static ItemEntry getNewItem() {
-		//todo based on config
-		return ItemEntry.getRandomItem();
+		double r = new Random().nextDouble();
+		return ItemEntry.getRandomItemByDifficultyWithoutDimension(ItemEntry.Dimension.END, r < 0.3 ? 0 : r < 0.6 ? 1 : r < 0.8 ? 2 : 3);
 	}
 }
 
