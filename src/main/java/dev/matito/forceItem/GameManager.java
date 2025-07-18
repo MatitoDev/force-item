@@ -1,5 +1,6 @@
 package dev.matito.forceItem;
 
+import dev.matito.forceItem.database.object.Item;
 import dev.matito.forceItem.util.ItemEntry;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
@@ -12,12 +13,11 @@ import java.util.*;
 @Getter
 public class GameManager {
 	public boolean started = false;
-	public Map<Player, ItemEntry> players = new HashMap<>();
 
 	public boolean start() {
 		started = true;
 		ForceItem.INSTANCE.getTimer().startTimer();
-		players.forEach((player, itemEntry) -> {
+		ForceItem.INSTANCE.getItemTable().getPlayersCurrentItems().forEach((player, itemEntry) -> {
 			player.playSound(player, Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
 			player.sendMessage(ForceItem.getPrefix().append(Component.text("THE GAME STARTS! GO! GO! GO!", NamedTextColor.GREEN)));
 			player.sendMessage(ForceItem.getPrefix().append(Component.text("Your fist Item is: ", NamedTextColor.GREEN))
@@ -39,7 +39,7 @@ public class GameManager {
 	}
 
 	private void checkInventory() {
-		players.forEach((player, item) -> player.getInventory().forEach(invItem -> {
+		ForceItem.INSTANCE.getItemTable().getPlayersCurrentItems().forEach((player, item) -> player.getInventory().forEach(invItem -> {
 			if (invItem != null && invItem.getType().equals(item.getItemStack().getType())) nextItem(player);
 		}));
 	};
@@ -47,9 +47,10 @@ public class GameManager {
 	private void nextItem(Player player) {
 		player.playSound(player, Sound.ENTITY_PLAYER_LEVELUP, 255, 0.8f);
 		player.sendMessage(ForceItem.getPrefix().append(Component.text("You completed the Item ", NamedTextColor.GREEN))
-				.append(Component.text(players.get(player).getName(), NamedTextColor.AQUA)));
+				.append(Component.text(ForceItem.INSTANCE.getItemTable().getCurrentItem(player).getName(), NamedTextColor.AQUA)));
+		ForceItem.INSTANCE.getItemTable().markAsDone(player);
 		ItemEntry newItem = getNewItem();
-		players.put(player, newItem);
+		ForceItem.INSTANCE.getItemTable().add(player, newItem);
 		player.sendMessage(ForceItem.getPrefix().append(Component.text("Your next Item is ", NamedTextColor.GREEN))
 				.append(Component.text(newItem.getName(), NamedTextColor.AQUA)));
 	}

@@ -6,8 +6,8 @@ import dev.matito.forceItem.commands.AddPlayerCommand;
 import dev.matito.forceItem.commands.StartCommand;
 import dev.matito.forceItem.commands.TestCommand;
 import dev.matito.forceItem.database.PlayerTypeMapper;
-import dev.matito.forceItem.database.object.Test;
-import dev.matito.forceItem.database.table.TestTable;
+import dev.matito.forceItem.database.object.Item;
+import dev.matito.forceItem.database.table.ItemTable;
 import dev.matito.forceItem.listener.TemplateListener;
 import io.github.cdimascio.dotenv.Dotenv;
 import lombok.Getter;
@@ -33,7 +33,7 @@ public final class ForceItem extends JavaPlugin {
 
 	private GameManager gameManager;
 
-	private TestTable table;
+	private ItemTable itemTable;
 
 	public static DatabaseManager getDatabase() {
 		return INSTANCE.database;
@@ -83,7 +83,7 @@ public final class ForceItem extends JavaPlugin {
 		database.addMapper(new PlayerTypeMapper());
 
 
-		table = getDatabase().getTable(Test.class, Test::new).name("test").table(TestTable.class).create();
+		itemTable = getDatabase().getTable(Item.class, Item::new).name("items").table(ItemTable.class).create();
 	}
 
 	private void setupTimer() {
