@@ -1,6 +1,5 @@
 package dev.matito.forceItem;
 
-import dev.matito.forceItem.database.object.Item;
 import dev.matito.forceItem.util.ItemEntry;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
@@ -33,22 +32,22 @@ public class GameManager {
 
 	private void gameLoop() {
 		ForceItem.INSTANCE.getTimer().addTickLogic(time -> {
-			checkInventory();
+			checkInventory(time.toString());
 			return null;
 		});
 	}
 
-	private void checkInventory() {
+	private void checkInventory(String time) {
 		ForceItem.INSTANCE.getItemTable().getPlayersCurrentItems().forEach((player, item) -> player.getInventory().forEach(invItem -> {
-			if (invItem != null && invItem.getType().equals(item.getItemStack().getType())) nextItem(player);
+			if (invItem != null && invItem.getType().equals(item.getItemStack().getType())) nextItem(player, time);
 		}));
 	};
 
-	private void nextItem(Player player) {
+	private void nextItem(Player player, String time) {
 		player.playSound(player, Sound.ENTITY_PLAYER_LEVELUP, 255, 0.8f);
 		player.sendMessage(ForceItem.getPrefix().append(Component.text("You completed the Item ", NamedTextColor.GREEN))
 				.append(Component.text(ForceItem.INSTANCE.getItemTable().getCurrentItem(player).getName(), NamedTextColor.AQUA)));
-		ForceItem.INSTANCE.getItemTable().markAsDone(player);
+		ForceItem.INSTANCE.getItemTable().markAsDone(player, time);
 		ItemEntry newItem = getNewItem();
 		ForceItem.INSTANCE.getItemTable().add(player, newItem);
 		player.sendMessage(ForceItem.getPrefix().append(Component.text("Your next Item is ", NamedTextColor.GREEN))

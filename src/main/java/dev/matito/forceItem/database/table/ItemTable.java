@@ -10,6 +10,8 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.sql.Date;
+import java.time.Instant;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -22,7 +24,8 @@ public interface ItemTable extends Table<Item> {
             insert(new Item(
                     player,
                     item.toString(),
-                    false
+                    false,
+                    null
             ));
             return true;
         } catch (ConflictException e) {
@@ -38,8 +41,8 @@ public interface ItemTable extends Table<Item> {
         return selectOne(Where.equals("player", player)).orElseThrow().getItemEntry();
     }
 
-    default void markAsDone(Player player) {
-        update(new Item(player, getCurrentItem(player).toString(), true));
+    default void markAsDone(Player player, String time) {
+        update(new Item(player, getCurrentItem(player).toString(), true, time));
     }
 
     default ItemEntry getCurrentItem(Player player) {

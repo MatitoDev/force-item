@@ -6,11 +6,10 @@ import dev.matito.forceItem.util.ItemEntry;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
-import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
+
+import java.sql.Date;
 
 @Getter
 @RequiredArgsConstructor
@@ -24,6 +23,9 @@ public class Item {
 
 	@Column()
     private boolean done;
+
+    @Column
+    private String time;
 
     public ItemEntry getItemEntry() {
         return ItemEntry.valueOf(itemEntry);
