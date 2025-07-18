@@ -11,10 +11,10 @@ import java.util.Random;
 
 @Getter
 public class GameManager {
-	public boolean started = false;
+	public boolean running = false;
 
 	public boolean start() {
-		started = true;
+		running = true;
 		ForceItem.INSTANCE.getTimer().startTimer();
 		ForceItem.INSTANCE.getItemTable().getPlayersCurrentItems().forEach((player, itemEntry) -> {
 			player.playSound(player, Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
@@ -27,12 +27,16 @@ public class GameManager {
 	}
 
 	public boolean end() {
+		if (!running) return false;
+		running = false;
+		ForceItem.INSTANCE.getServer().sendMessage(ForceItem.getPrefix().append(Component.text("THE GAME ENDED! ", NamedTextColor.RED)));
 		return true;
 	}
 
 	private void gameLoop() {
 		ForceItem.INSTANCE.getTimer().addTickLogic(time -> {
 			checkInventory(time.toString());
+			if (!ForceItem.INSTANCE.getTimer().getTimerStatus()) end();
 			return null;
 		});
 	}
