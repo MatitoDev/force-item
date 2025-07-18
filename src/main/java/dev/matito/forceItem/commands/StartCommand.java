@@ -8,7 +8,7 @@ import org.bukkit.command.CommandSender;
 
 public class StartCommand {
 	public static void start(CommandSender sender) {
-		if (ForceItem.INSTANCE.getGameManager().running) {
+		if (ForceItem.INSTANCE.getGameManager().isRunning()) {
 			sender.sendMessage(ForceItem.getPrefix().append(Component.text("Game already running!", NamedTextColor.RED)));
 			return;
 		}
