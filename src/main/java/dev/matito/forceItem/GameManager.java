@@ -35,17 +35,15 @@ public class GameManager {
 
 	private void gameLoop() {
 		ForceItem.INSTANCE.getTimer().addTickLogic(time -> {
-			checkInventory(time.toString());
+
+			ForceItem.INSTANCE.getItemTable().getPlayersCurrentItems().forEach((player, item) -> player.getInventory().forEach(invItem -> {
+				if (invItem != null && invItem.getType().equals(item.getItemStack().getType())) nextItem(player, time.toString());
+			}));
+
 			if (!ForceItem.INSTANCE.getTimer().getTimerStatus()) end();
 			return null;
 		});
 	}
-
-	private void checkInventory(String time) {
-		ForceItem.INSTANCE.getItemTable().getPlayersCurrentItems().forEach((player, item) -> player.getInventory().forEach(invItem -> {
-			if (invItem != null && invItem.getType().equals(item.getItemStack().getType())) nextItem(player, time);
-		}));
-	};
 
 	private void nextItem(Player player, String time) {
 		player.playSound(player, Sound.ENTITY_PLAYER_LEVELUP, 255, 0.8f);
