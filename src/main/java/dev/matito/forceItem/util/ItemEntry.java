@@ -1,21 +1,10 @@
 package dev.matito.forceItem.util;
 
 import lombok.Getter;
-import net.kyori.adventure.text.Component;
-import org.bukkit.Color;
-import org.bukkit.DyeColor;
-import org.bukkit.FireworkEffect;
 import org.bukkit.Material;
-import org.bukkit.block.banner.Pattern;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.*;
-import org.bukkit.potion.PotionType;
-import org.bukkit.block.banner.PatternType;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 //todo go though all and test them
 
 
@@ -423,7 +412,6 @@ public enum ItemEntry {
 	POLISHED_TUFF_STAIRS("Polished Tuff Stairs", Dimension.OVERWORLD, 0, new ItemStack(Material.POLISHED_TUFF_STAIRS)),
 	POLISHED_TUFF_WALL("Polished Tuff Wall", Dimension.OVERWORLD, 0, new ItemStack(Material.POLISHED_TUFF_WALL)),
 	SPONGE("Sponge", Dimension.OVERWORLD, 0, new ItemStack(Material.SPONGE)),
-	WET_SPONGE("Wet Sponge", Dimension.OVERWORLD, 0, new ItemStack(Material.WET_SPONGE)),
 	MOSS_BLOCK("Moss Block", Dimension.OVERWORLD, 0, new ItemStack(Material.MOSS_BLOCK)),
 	MOSS_CARPET("Moss Carpet", Dimension.OVERWORLD, 0, new ItemStack(Material.MOSS_CARPET)),
 	BIG_DRIPLEAF("Big Dripleaf", Dimension.OVERWORLD, 0, new ItemStack(Material.BIG_DRIPLEAF)),
@@ -471,19 +459,9 @@ public enum ItemEntry {
 	TORCHFLOWER_SEEDS("Torchflower Seeds", Dimension.OVERWORLD, 0, new ItemStack(Material.TORCHFLOWER_SEEDS)),
 	SNIFFER_EGG("Sniffer Egg", Dimension.OVERWORLD, 0, new ItemStack(Material.SNIFFER_EGG)),
 	TORCHFLOWER("Torchflower", Dimension.OVERWORLD, 0, new ItemStack(Material.TORCHFLOWER)),
-	PITCHER_PLANT("Pitcher Plant", Dimension.OVERWORLD, 0, new ItemStack(Material.PITCHER_PLANT)), // Assuming a sweet berry bush as a stand-in
-	CACTUS_FLOWER("Cactus Flower", Dimension.OVERWORLD, 0, new ItemStack(Material.FLOWER_POT)), // No direct item, using flower pot as a placeholder
-	WILDFLOWERS("Wildflowers", Dimension.OVERWORLD, 0, new ItemStack(Material.DANDELION)), // Using dandelion as a representative
-	LEAF_LITTER("Leaf Litter", Dimension.OVERWORLD, 0, new ItemStack(Material.OAK_LEAVES)), // Using oak leaves as a stand-in
-	PALE_HANGING_MOSS("Pale Hanging Moss", Dimension.OVERWORLD, 0, new ItemStack(Material.VINE)), // Using vine as a stand-in
-	PALE_MOSS_BLOCK("Pale Moss Block", Dimension.OVERWORLD, 0, new ItemStack(Material.MOSS_BLOCK)),
-	PALE_MOSS_CARPET("Pale Moss Carpet", Dimension.OVERWORLD, 0, new ItemStack(Material.MOSS_CARPET)),
-	SHORT_DRY_GRASS("Short Dry Grass", Dimension.OVERWORLD, 0, new ItemStack(Material.SHORT_GRASS)),
 	TALL_DRY_GRASS("Tall Dry Grass", Dimension.OVERWORLD, 0, new ItemStack(Material.TALL_GRASS)),
-	OPEN_EYEBLOSSOM("Open Eyeblossom", Dimension.OVERWORLD, 0, new ItemStack(Material.OXEYE_DAISY)), // Using oxeye daisy as a stand-in
-	CLOSED_EYEBLOSSOM("Closed Eyeblossom", Dimension.OVERWORLD, 0, new ItemStack(Material.OXEYE_DAISY)), // Using oxeye daisy as a stand-in
-
 	// Overworld - Difficulty 1
+	PITCHER_PLANT("Pitcher Plant", Dimension.OVERWORLD, 1, new ItemStack(Material.PITCHER_PLANT)),
 	IRON_INGOT("Iron Ingot", Dimension.OVERWORLD, 1, new ItemStack(Material.IRON_INGOT)),
 	GOLD_INGOT("Gold Ingot", Dimension.OVERWORLD, 1, new ItemStack(Material.GOLD_INGOT)),
 	REDSTONE_BLOCK("Block of Redstone", Dimension.OVERWORLD, 1, new ItemStack(Material.REDSTONE_BLOCK)),
@@ -537,7 +515,6 @@ public enum ItemEntry {
 	ORANGE_DYE("Orange Dye", Dimension.OVERWORLD, 1, new ItemStack(Material.ORANGE_DYE)),
 	WHITE_DYE("White Dye", Dimension.OVERWORLD, 1, new ItemStack(Material.WHITE_DYE)),
 	INK_SAC("Ink Sac", Dimension.OVERWORLD, 1, new ItemStack(Material.INK_SAC)),
-	COCOA_BEANS_ITEM("Cocoa Beans", Dimension.OVERWORLD, 1, new ItemStack(Material.COCOA_BEANS)),
 	HONEY_BOTTLE("Honey Bottle", Dimension.OVERWORLD, 1, new ItemStack(Material.HONEY_BOTTLE)),
 	LEATHER("Leather", Dimension.OVERWORLD, 1, new ItemStack(Material.LEATHER)),
 	RABBIT_HIDE("Rabbit Hide", Dimension.OVERWORLD, 1, new ItemStack(Material.RABBIT_HIDE)),
@@ -626,7 +603,6 @@ public enum ItemEntry {
 	CYAN_CANDLE("Cyan Candle", Dimension.OVERWORLD, 1, new ItemStack(Material.CYAN_CANDLE)),
 	GRAY_CANDLE("Gray Candle", Dimension.OVERWORLD, 1, new ItemStack(Material.GRAY_CANDLE)),
 	GREEN_CANDLE("Green Candle", Dimension.OVERWORLD, 1, new ItemStack(Material.GREEN_CANDLE)),
-	LIGHT_BLUE_CANDLE("Light Blue Candle", Dimension.OVERWORLD, 1, new ItemStack(Material.BLUE_CANDLE)),
 	LIGHT_GRAY_CANDLE("Light Gray Candle", Dimension.OVERWORLD, 1, new ItemStack(Material.LIGHT_GRAY_CANDLE)),
 	LIME_CANDLE("Lime Candle", Dimension.OVERWORLD, 1, new ItemStack(Material.LIME_CANDLE)),
 	MAGENTA_CANDLE("Magenta Candle", Dimension.OVERWORLD, 1, new ItemStack(Material.MAGENTA_CANDLE)),
@@ -743,7 +719,6 @@ public enum ItemEntry {
 	BELL("Bell", Dimension.OVERWORLD, 1, new ItemStack(Material.BELL)),
 	JUKEBOX("Jukebox", Dimension.OVERWORLD, 1, new ItemStack(Material.JUKEBOX)),
 	NOTE_BLOCK("Note Block", Dimension.OVERWORLD, 1, new ItemStack(Material.NOTE_BLOCK)),
-	OBSERVER("Observer", Dimension.OVERWORLD, 1, new ItemStack(Material.OBSERVER)),
 	DAYLIGHT_DETECTOR("Daylight Detector", Dimension.OVERWORLD, 1, new ItemStack(Material.DAYLIGHT_DETECTOR)),
 	DISPENSER("Dispenser", Dimension.OVERWORLD, 1, new ItemStack(Material.DISPENSER)),
 	DROPPER("Dropper", Dimension.OVERWORLD, 1, new ItemStack(Material.DROPPER)),
@@ -786,7 +761,6 @@ public enum ItemEntry {
 	SOUL_CAMPFIRE("Soul Campfire", Dimension.OVERWORLD, 1, new ItemStack(Material.SOUL_CAMPFIRE)),
 	LIGHTNING_ROD("Lightning Rod", Dimension.OVERWORLD, 1, new ItemStack(Material.LIGHTNING_ROD)),
 	CARROT_ON_A_STICK("Carrot on a Stick", Dimension.OVERWORLD, 1, new ItemStack(Material.CARROT_ON_A_STICK)),
-	FISHING_ROD_ENCHANTED("Fishing Rod", Dimension.OVERWORLD, 1, new ItemStack(Material.FISHING_ROD)), // Assuming non-enchanted for difficulty 1
 	LEAD("Lead", Dimension.OVERWORLD, 1, new ItemStack(Material.LEAD)),
 	WHITE_STAINED_GLASS("White Stained Glass", Dimension.OVERWORLD, 1, new ItemStack(Material.WHITE_STAINED_GLASS)),
 	ORANGE_STAINED_GLASS("Orange Stained Glass", Dimension.OVERWORLD, 1, new ItemStack(Material.ORANGE_STAINED_GLASS)),
@@ -880,7 +854,6 @@ public enum ItemEntry {
 	DIAMOND_HORSE_ARMOR("Diamond Horse Armor", Dimension.OVERWORLD, 2, new ItemStack(Material.DIAMOND_HORSE_ARMOR)),
 	CLOCK("Clock", Dimension.OVERWORLD, 2, new ItemStack(Material.CLOCK)),
 	COMPASS("Compass", Dimension.OVERWORLD, 2, new ItemStack(Material.COMPASS)),
-	ENCHANTED_GOLDEN_APPLE("Enchanted Golden Apple", Dimension.OVERWORLD, 2, new ItemStack(Material.ENCHANTED_GOLDEN_APPLE)),
 	TOTEM_OF_UNDYING("Totem of Undying", Dimension.OVERWORLD, 2, new ItemStack(Material.TOTEM_OF_UNDYING)),
 	BOTTLE_O_ENCHANTING("Bottle o' Enchanting", Dimension.OVERWORLD, 2, new ItemStack(Material.EXPERIENCE_BOTTLE)),
 	FIREWORK_ROCKET("Firework Rocket", Dimension.OVERWORLD, 2, new ItemStack(Material.FIREWORK_ROCKET)),
@@ -898,7 +871,6 @@ public enum ItemEntry {
 	TURTLE_SCUTE("Turtle Scute", Dimension.OVERWORLD, 2, new ItemStack(Material.TURTLE_SCUTE)),
 	TURTLE_SHELL("Turtle Shell", Dimension.OVERWORLD, 2, new ItemStack(Material.TURTLE_HELMET)),
 	ARMADILLO_SCUTE("Armadillo Scute", Dimension.OVERWORLD, 2, new ItemStack(Material.ARMADILLO_SCUTE)),
-	CONDUIT("Conduit", Dimension.OVERWORLD, 2, new ItemStack(Material.CONDUIT)),
 	HEART_OF_THE_SEA("Heart of the Sea", Dimension.OVERWORLD, 2, new ItemStack(Material.HEART_OF_THE_SEA)),
 	SEA_LANTERN("Sea Lantern", Dimension.OVERWORLD, 2, new ItemStack(Material.SEA_LANTERN)),
 	PRISMARINE_SHARD("Prismarine Shard", Dimension.OVERWORLD, 2, new ItemStack(Material.PRISMARINE_SHARD)),
@@ -962,13 +934,9 @@ public enum ItemEntry {
 	WAXED_OXIDIZED_CHISELED_COPPER("Waxed Oxidized Chiseled Copper", Dimension.OVERWORLD, 2, new ItemStack(Material.WAXED_OXIDIZED_CHISELED_COPPER)),
 	TRIDENT("Trident", Dimension.OVERWORLD, 2, new ItemStack(Material.TRIDENT)),
 	WOLF_ARMOR("Wolf Armor", Dimension.OVERWORLD, 2, new ItemStack(Material.WOLF_ARMOR)),
+	OBSERVER("Observer", Dimension.OVERWORLD, 2, new ItemStack(Material.OBSERVER)),
 
 	// Overworld - Difficulty 3
-	GOLDEN_APPLE_ENCHANTED("Enchanted Golden Apple", Dimension.OVERWORLD, 3, new ItemStack(Material.ENCHANTED_GOLDEN_APPLE)),
-	CHAINMAIL_BOOTS("Chainmail Boots", Dimension.OVERWORLD, 3, new ItemStack(Material.CHAINMAIL_BOOTS)),
-	CHAINMAIL_CHESTPLATE("Chainmail Chestplate", Dimension.OVERWORLD, 3, new ItemStack(Material.CHAINMAIL_CHESTPLATE)),
-	CHAINMAIL_HELMET("Chainmail Helmet", Dimension.OVERWORLD, 3, new ItemStack(Material.CHAINMAIL_HELMET)),
-	CHAINMAIL_LEGGINGS("Chainmail Leggings", Dimension.OVERWORLD, 3, new ItemStack(Material.CHAINMAIL_LEGGINGS)),
 	PUMPKIN_CARVED("Carved Pumpkin", Dimension.OVERWORLD, 3, new ItemStack(Material.CARVED_PUMPKIN)),
 	JACK_O_LANTERN("Jack o'Lantern", Dimension.OVERWORLD, 3, new ItemStack(Material.JACK_O_LANTERN)),
 	MUSIC_DISC_13("Music Disc (13)", Dimension.OVERWORLD, 3, new ItemStack(Material.MUSIC_DISC_13)),
@@ -983,11 +951,10 @@ public enum ItemEntry {
 	MUSIC_DISC_WARD("Music Disc (Ward)", Dimension.OVERWORLD, 3, new ItemStack(Material.MUSIC_DISC_WARD)),
 	MUSIC_DISC_11("Music Disc (11)", Dimension.OVERWORLD, 3, new ItemStack(Material.MUSIC_DISC_11)),
 	MUSIC_DISC_WAIT("Music Disc (Wait)", Dimension.OVERWORLD, 3, new ItemStack(Material.MUSIC_DISC_WAIT)),
-	MUSIC_DISC_OTHERSIDE("Music Disc (Otherside)", Dimension.OVERWORLD, 3, new ItemStack(Material.MUSIC_DISC_OTHERSIDE)),
 	MUSIC_DISC_RELIC("Music Disc (Relic)", Dimension.OVERWORLD, 3, new ItemStack(Material.MUSIC_DISC_RELIC)),
 	MUSIC_DISC_5("Music Disc (5)", Dimension.OVERWORLD, 3, new ItemStack(Material.MUSIC_DISC_5)),
 	TRIPWIRE_HOOK("Tripwire Hook", Dimension.OVERWORLD, 3, new ItemStack(Material.TRIPWIRE_HOOK)),
-	CONDUIT_ITEM("Conduit", Dimension.OVERWORLD, 3, new ItemStack(Material.CONDUIT)),
+	CONDUIT("Conduit", Dimension.OVERWORLD, 3, new ItemStack(Material.CONDUIT)),
 	WAYFINDER_ARMOR_TRIM("Wayfinder Armor Trim", Dimension.OVERWORLD, 3, new ItemStack(Material.WAYFINDER_ARMOR_TRIM_SMITHING_TEMPLATE)),
 	RAISER_ARMOR_TRIM("Raiser Armor Trim", Dimension.OVERWORLD, 3, new ItemStack(Material.RAISER_ARMOR_TRIM_SMITHING_TEMPLATE)),
 	SHAPER_ARMOR_TRIM("Shaper Armor Trim", Dimension.OVERWORLD, 3, new ItemStack(Material.SHAPER_ARMOR_TRIM_SMITHING_TEMPLATE)),
@@ -1023,46 +990,20 @@ public enum ItemEntry {
 	OMINOUS_BOTTLE("Ominous Bottle", Dimension.OVERWORLD, 3, new ItemStack(Material.OMINOUS_BOTTLE)),
 	WIND_CHARGE("Wind Charge", Dimension.OVERWORLD, 3, new ItemStack(Material.WIND_CHARGE)),
 	MACE("Mace", Dimension.OVERWORLD, 3, new ItemStack(Material.MACE)),
+	ANVIL("Anvil", Dimension.OVERWORLD, 3, new ItemStack(Material.ANVIL)),
+	CHIPPED_ANVIL("Chipped Anvil", Dimension.OVERWORLD, 3, new ItemStack(Material.CHIPPED_ANVIL)),
+	DAMAGED_ANVIL("Damaged Anvil", Dimension.OVERWORLD, 3, new ItemStack(Material.DAMAGED_ANVIL)),
 
 	// Overworld - Difficulty 4
-	ANVIL("Anvil", Dimension.OVERWORLD, 4, new ItemStack(Material.ANVIL)),
-	CHIPPED_ANVIL("Chipped Anvil", Dimension.OVERWORLD, 4, new ItemStack(Material.CHIPPED_ANVIL)),
-	DAMAGED_ANVIL("Damaged Anvil", Dimension.OVERWORLD, 4, new ItemStack(Material.DAMAGED_ANVIL)),
-	BEACON("Beacon", Dimension.OVERWORLD, 4, new ItemStack(Material.BEACON)),
-	GHAST_TEAR("Ghast Tear", Dimension.OVERWORLD, 4, new ItemStack(Material.GHAST_TEAR)),
-	SHULKER_BOX_BLACK("Black Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.BLACK_SHULKER_BOX)),
-	SHULKER_BOX_BLUE("Blue Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.BLUE_SHULKER_BOX)),
-	SHULKER_BOX_BROWN("Brown Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.BROWN_SHULKER_BOX)),
-	SHULKER_BOX_CYAN("Cyan Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.CYAN_SHULKER_BOX)),
-	SHULKER_BOX_GRAY("Gray Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.GRAY_SHULKER_BOX)),
-	SHULKER_BOX_GREEN("Green Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.GREEN_SHULKER_BOX)),
-	SHULKER_BOX_LIGHT_BLUE("Light Blue Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.LIGHT_BLUE_SHULKER_BOX)),
-	SHULKER_BOX_LIGHT_GRAY("Light Gray Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.LIGHT_GRAY_SHULKER_BOX)),
-	SHULKER_BOX_LIME("Lime Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.LIME_SHULKER_BOX)),
-	SHULKER_BOX_MAGENTA("Magenta Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.MAGENTA_SHULKER_BOX)),
-	SHULKER_BOX_ORANGE("Orange Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.ORANGE_SHULKER_BOX)),
-	SHULKER_BOX_PINK("Pink Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.PINK_SHULKER_BOX)),
-	SHULKER_BOX_PURPLE("Purple Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.PURPLE_SHULKER_BOX)),
-	SHULKER_BOX_RED("Red Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.RED_SHULKER_BOX)),
-	SHULKER_BOX_WHITE("White Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.WHITE_SHULKER_BOX)),
-	SHULKER_BOX_YELLOW("Yellow Shulker Box", Dimension.OVERWORLD, 4, new ItemStack(Material.YELLOW_SHULKER_BOX)),
-	BURIED_TREASURE_MAP("Buried Treasure Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
-	DESERT_VILLAGE_MAP("Desert Village Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
-	JUNGLE_EXPLORER_MAP("Jungle Explorer Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
-	OCEAN_EXPLORER_MAP("Ocean Explorer Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
-	PLAINS_VILLAGE_MAP("Plains Village Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
-	SAVANNA_VILLAGE_MAP("Savanna Village Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
-	SNOWY_VILLAGE_MAP("Snowy Village Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
-	SWAMP_EXPLORER_MAP("Swamp Explorer Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
-	TAIGA_VILLAGE_MAP("Taiga Village Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
-	TRIAL_EXPLORER_MAP("Trial Explorer Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
-	WOODLAND_EXPLORER_MAP("Woodland Explorer Map", Dimension.OVERWORLD, 4, new ItemStack(Material.MAP)), // Assuming a specific map type
+	GOLDEN_APPLE_ENCHANTED("Enchanted Golden Apple", Dimension.OVERWORLD, 4, new ItemStack(Material.ENCHANTED_GOLDEN_APPLE)),
+	CHAINMAIL_BOOTS("Chainmail Boots", Dimension.OVERWORLD, 4, new ItemStack(Material.CHAINMAIL_BOOTS)),
+	CHAINMAIL_CHESTPLATE("Chainmail Chestplate", Dimension.OVERWORLD, 4, new ItemStack(Material.CHAINMAIL_CHESTPLATE)),
+	CHAINMAIL_HELMET("Chainmail Helmet", Dimension.OVERWORLD, 4, new ItemStack(Material.CHAINMAIL_HELMET)),
+	CHAINMAIL_LEGGINGS("Chainmail Leggings", Dimension.OVERWORLD, 4, new ItemStack(Material.CHAINMAIL_LEGGINGS)),
 	NAME_TAG("Name Tag", Dimension.OVERWORLD, 4, new ItemStack(Material.NAME_TAG)),
-	MUSIC_DISC_PIGSTEP("Music Disc (Pigstep)", Dimension.OVERWORLD, 4, new ItemStack(Material.MUSIC_DISC_PIGSTEP)),
 	SCULK_SENSOR("Sculk Sensor", Dimension.OVERWORLD, 4, new ItemStack(Material.SCULK_SENSOR)),
 	SCULK_CATALYST("Sculk Catalyst", Dimension.OVERWORLD, 4, new ItemStack(Material.SCULK_CATALYST)),
 	SCULK_SHRIEKER("Sculk Shrieker", Dimension.OVERWORLD, 4, new ItemStack(Material.SCULK_SHRIEKER)),
-	WIND_CHARGE_ITEM("Wind Charge", Dimension.OVERWORLD, 4, new ItemStack(Material.WIND_CHARGE)),
 	BREEZE_ROD("Breeze Rod", Dimension.OVERWORLD, 4, new ItemStack(Material.BREEZE_ROD)),
 	HEAVY_CORE("Heavy Core", Dimension.OVERWORLD, 4, new ItemStack(Material.HEAVY_CORE)),
 	CREAKING_HEART("Creaking Heart", Dimension.OVERWORLD, 4, new ItemStack(Material.CREAKING_HEART)),
@@ -1160,17 +1101,12 @@ public enum ItemEntry {
 	NETHER_WART("Nether Wart", Dimension.NETHER, 1, new ItemStack(Material.NETHER_WART)),
 	NETHER_WART_BLOCK("Nether Wart Block", Dimension.NETHER, 1, new ItemStack(Material.NETHER_WART_BLOCK)),
 	WARPED_FUNGUS_ON_A_STICK("Warped Fungus on a Stick", Dimension.NETHER, 1, new ItemStack(Material.WARPED_FUNGUS_ON_A_STICK)),
-	MUSIC_DISC_PIGSTEP_ITEM("Music Disc (Pigstep)", Dimension.NETHER, 1, new ItemStack(Material.MUSIC_DISC_PIGSTEP)),
 
 	// Nether - Difficulty 2
-	BREWING_STAND_NETHER("Brewing Stand", Dimension.NETHER, 2, new ItemStack(Material.BREWING_STAND)),
 	QUARTZ_BRICKS("Quartz Bricks", Dimension.NETHER, 2, new ItemStack(Material.QUARTZ_BRICKS)),
 	BLACKSTONE_SLAB("Blackstone Slab", Dimension.NETHER, 2, new ItemStack(Material.BLACKSTONE_SLAB)),
 	BLACKSTONE_STAIRS("Blackstone Stairs", Dimension.NETHER, 2, new ItemStack(Material.BLACKSTONE_STAIRS)),
 	BLACKSTONE_WALL("Blackstone Wall", Dimension.NETHER, 2, new ItemStack(Material.BLACKSTONE_WALL)),
-	SOUL_SAND_L("Soul Sand", Dimension.NETHER, 2, new ItemStack(Material.SOUL_SAND)),
-	CRIMSON_FUNGUS_CRAFTED("Crimson Fungus", Dimension.NETHER, 2, new ItemStack(Material.CRIMSON_FUNGUS)),
-	WARPED_FUNGUS_CRAFTED("Warped Fungus", Dimension.NETHER, 2, new ItemStack(Material.WARPED_FUNGUS)),
 
 	// Nether - Difficulty 3
 	GHAST_TEAR_NETHER("Ghast Tear", Dimension.NETHER, 3, new ItemStack(Material.GHAST_TEAR)),
@@ -1188,9 +1124,7 @@ public enum ItemEntry {
 	NETHERITE_CHESTPLATE("Netherite Chestplate", Dimension.NETHER, 3, new ItemStack(Material.NETHERITE_CHESTPLATE)),
 	NETHERITE_LEGGINGS("Netherite Leggings", Dimension.NETHER, 3, new ItemStack(Material.NETHERITE_LEGGINGS)),
 	NETHERITE_BOOTS("Netherite Boots", Dimension.NETHER, 3, new ItemStack(Material.NETHERITE_BOOTS)),
-	MUSIC_DISC_PIGSTEP_BARTER("Music Disc (Pigstep)", Dimension.NETHER, 3, new ItemStack(Material.MUSIC_DISC_PIGSTEP)),
-	MUSIC_DISC_OTHERSIDE_BARTER("Music Disc (Otherside)", Dimension.NETHER, 3, new ItemStack(Material.MUSIC_DISC_OTHERSIDE)),
-	BASTION_REMNANT_MAP("Bastion Remnant Map", Dimension.NETHER, 3, new ItemStack(Material.MAP)), // Assuming a specific map type
+	MUSIC_DISC_OTHERSIDE("Music Disc (Otherside)", Dimension.NETHER, 3, new ItemStack(Material.MUSIC_DISC_OTHERSIDE)),
 	SNOUT_ARMOR_TRIM("Snout Armor Trim", Dimension.NETHER, 3, new ItemStack(Material.SNOUT_ARMOR_TRIM_SMITHING_TEMPLATE)),
 	RIB_ARMOR_TRIM("Rib Armor Trim", Dimension.NETHER, 3, new ItemStack(Material.RIB_ARMOR_TRIM_SMITHING_TEMPLATE)),
 	NETHERITE_UPGRADE("Netherite Upgrade", Dimension.NETHER, 3, new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE)),
@@ -1202,7 +1136,6 @@ public enum ItemEntry {
 	CRYING_OBSIDIAN("Crying Obsidian", Dimension.NETHER, 4, new ItemStack(Material.CRYING_OBSIDIAN)),
 	RESPAWN_ANCHOR("Respawn Anchor", Dimension.NETHER, 4, new ItemStack(Material.RESPAWN_ANCHOR)),
 	MUSIC_DISC_PIGSTEP_TREASURE("Music Disc (Pigstep)", Dimension.NETHER, 4, new ItemStack(Material.MUSIC_DISC_PIGSTEP)),
-	MUSIC_DISC_RELIC_TREASURE("Music Disc (Relic)", Dimension.NETHER, 4, new ItemStack(Material.MUSIC_DISC_RELIC)),
 
 	// End - Difficulty 0
 	END_STONE("End Stone", Dimension.END, 0, new ItemStack(Material.END_STONE)),
@@ -1230,10 +1163,7 @@ public enum ItemEntry {
 	DRAGON_EGG("Dragon Egg", Dimension.END, 4, new ItemStack(Material.DRAGON_EGG)),
 	DRAGON_HEAD("Dragon Head", Dimension.END, 4, new ItemStack(Material.DRAGON_HEAD)),
 	DRAGONS_BREATH("Dragon's Breath", Dimension.END, 4, new ItemStack(Material.DRAGON_BREATH)),
-	PURPLE_SHULKER_BOX("Purple Shulker Box", Dimension.END, 4, new ItemStack(Material.PURPLE_SHULKER_BOX)),
-	END_STONE_BRICK_WALL_CRAFTED("End Stone Brick Wall", Dimension.END, 4, new ItemStack(Material.END_STONE_BRICK_WALL)),
 	CHORUS_PLANT("Chorus Plant", Dimension.END, 4, new ItemStack(Material.CHORUS_PLANT)),
-	THE_DRAGON_EGG("Dragon Egg", Dimension.END, 4, new ItemStack(Material.DRAGON_EGG)),
 	SPIRE_ARMOR_TRIM("Spire Armor Trim", Dimension.END, 4, new ItemStack(Material.SPIRE_ARMOR_TRIM_SMITHING_TEMPLATE)),
 	TIDE_ARMOR_TRIM("Tide Armor Trim", Dimension.END, 4, new ItemStack(Material.TIDE_ARMOR_TRIM_SMITHING_TEMPLATE)),
 	VEX_ARMOR_TRIM("Vex Armor Trim", Dimension.END, 4, new ItemStack(Material.VEX_ARMOR_TRIM_SMITHING_TEMPLATE)),
@@ -1245,9 +1175,22 @@ public enum ItemEntry {
 	EYE_ARMOR_TRIM("Eye Armor Trim", Dimension.END, 4, new ItemStack(Material.EYE_ARMOR_TRIM_SMITHING_TEMPLATE)),
 	FLOW_ARMOR_TRIM("Flow Armor Trim", Dimension.END, 4, new ItemStack(Material.FLOW_ARMOR_TRIM_SMITHING_TEMPLATE)),
 	SILENCE_ARMOR_TRIM("Silence Armor Trim", Dimension.END, 4, new ItemStack(Material.SILENCE_ARMOR_TRIM_SMITHING_TEMPLATE)),
-	NETHERITE_UPGRADE_END("Netherite Upgrade", Dimension.END, 4, new ItemStack(Material.NETHERITE_UPGRADE_SMITHING_TEMPLATE)),
-
-	// Generic Shulker Box (purple base)
+	SHULKER_BOX_BLACK("Black Shulker Box", Dimension.END, 4, new ItemStack(Material.BLACK_SHULKER_BOX)),
+	SHULKER_BOX_BLUE("Blue Shulker Box", Dimension.END, 4, new ItemStack(Material.BLUE_SHULKER_BOX)),
+	SHULKER_BOX_BROWN("Brown Shulker Box", Dimension.END, 4, new ItemStack(Material.BROWN_SHULKER_BOX)),
+	SHULKER_BOX_CYAN("Cyan Shulker Box", Dimension.END, 4, new ItemStack(Material.CYAN_SHULKER_BOX)),
+	SHULKER_BOX_GRAY("Gray Shulker Box", Dimension.END, 4, new ItemStack(Material.GRAY_SHULKER_BOX)),
+	SHULKER_BOX_GREEN("Green Shulker Box", Dimension.END, 4, new ItemStack(Material.GREEN_SHULKER_BOX)),
+	SHULKER_BOX_LIGHT_BLUE("Light Blue Shulker Box", Dimension.END, 4, new ItemStack(Material.LIGHT_BLUE_SHULKER_BOX)),
+	SHULKER_BOX_LIGHT_GRAY("Light Gray Shulker Box", Dimension.END, 4, new ItemStack(Material.LIGHT_GRAY_SHULKER_BOX)),
+	SHULKER_BOX_LIME("Lime Shulker Box", Dimension.END, 4, new ItemStack(Material.LIME_SHULKER_BOX)),
+	SHULKER_BOX_MAGENTA("Magenta Shulker Box", Dimension.END, 4, new ItemStack(Material.MAGENTA_SHULKER_BOX)),
+	SHULKER_BOX_ORANGE("Orange Shulker Box", Dimension.END, 4, new ItemStack(Material.ORANGE_SHULKER_BOX)),
+	SHULKER_BOX_PINK("Pink Shulker Box", Dimension.END, 4, new ItemStack(Material.PINK_SHULKER_BOX)),
+	SHULKER_BOX_PURPLE("Purple Shulker Box", Dimension.END, 4, new ItemStack(Material.PURPLE_SHULKER_BOX)),
+	SHULKER_BOX_RED("Red Shulker Box", Dimension.END, 4, new ItemStack(Material.RED_SHULKER_BOX)),
+	SHULKER_BOX_WHITE("White Shulker Box", Dimension.END, 4, new ItemStack(Material.WHITE_SHULKER_BOX)),
+	SHULKER_BOX_YELLOW("Yellow Shulker Box", Dimension.END, 4, new ItemStack(Material.YELLOW_SHULKER_BOX)),
 	SHULKER_BOX("Shulker Box", Dimension.END, 3, new ItemStack(Material.SHULKER_BOX));
 
 	private final String name;
