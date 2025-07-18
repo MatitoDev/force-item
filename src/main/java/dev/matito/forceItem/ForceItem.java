@@ -2,14 +2,11 @@ package dev.matito.forceItem;
 
 import de.mineking.databaseutils.DatabaseManager;
 import de.miraculixx.timer.api.MTimerAPI;
-import dev.matito.forceItem.commands.AddPlayerCommand;
-import dev.matito.forceItem.commands.ResetCommand;
-import dev.matito.forceItem.commands.StartCommand;
-import dev.matito.forceItem.commands.TestCommand;
+import dev.matito.forceItem.commands.*;
 import dev.matito.forceItem.database.PlayerTypeMapper;
 import dev.matito.forceItem.database.object.Item;
 import dev.matito.forceItem.database.table.ItemTable;
-import dev.matito.forceItem.listener.TemplateListener;
+import dev.matito.forceItem.listener.JokerListener;
 import io.github.cdimascio.dotenv.Dotenv;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
@@ -61,10 +58,12 @@ public final class ForceItem extends JavaPlugin {
 		StartCommand.register();
 		AddPlayerCommand.register();
 		ResetCommand.register();
+		ForceSkipCommand.register();
+		GiveJokerCommand.register();
 	}
 
 	private void registerListeners() {
-		registerEvent(new TemplateListener());
+		registerEvent(new JokerListener());
 	}
 
 	private void registerEvent(@NotNull Listener listener) {

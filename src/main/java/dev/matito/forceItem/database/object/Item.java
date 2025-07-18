@@ -25,6 +25,9 @@ public class Item {
     private boolean done;
 
     @Column
+    private boolean skipped;
+
+    @Column
     private String time;
 
     public ItemEntry getItemEntry() {

@@ -13,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 public interface ItemTable extends Table<Item> {
 
@@ -23,6 +24,7 @@ public interface ItemTable extends Table<Item> {
             insert(new Item(
                     player,
                     item.toString(),
+                    false,
                     false,
                     null
             ));
@@ -41,7 +43,12 @@ public interface ItemTable extends Table<Item> {
     }
 
     default void markAsDone(Player player, String time) {
-        update(new Item(player, getCurrentItem(player).toString(), true, time));
+        update(new Item(player, getCurrentItem(player).toString(), true, false, time));
+    }
+
+    //skipped by joker, force skip ist just same as done :)
+    default void markAsSkipped(Player player, String time) {
+        update(new Item(player, getCurrentItem(player).toString(), true, true, time));
     }
 
     default ItemEntry getCurrentItem(Player player) {

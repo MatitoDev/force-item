@@ -39,7 +39,11 @@ public class GameManager {
 			this.time = time.toString();
 			ForceItem.INSTANCE.getItemTable().getPlayersCurrentItems().forEach((player, item) -> {
 				if (player != null) player.getInventory().forEach(invItem -> {
-					if (invItem != null && invItem.getType().equals(item.getItemStack().getType())) nextItem(player);
+					if (invItem != null && invItem.getType().equals(item.getItemStack().getType())) {
+						player.sendMessage(ForceItem.getPrefix().append(Component.text("You completed the Item ", NamedTextColor.GREEN))
+								.append(Component.text(ForceItem.INSTANCE.getItemTable().getCurrentItem(player).getName(), NamedTextColor.AQUA)));
+						nextItem(player);
+					}
 				});
 			});
 
@@ -51,8 +55,6 @@ public class GameManager {
 
 	public void nextItem(Player player) {
 		player.playSound(player, Sound.ENTITY_PLAYER_LEVELUP, 255, 0.8f);
-		player.sendMessage(ForceItem.getPrefix().append(Component.text("You completed the Item ", NamedTextColor.GREEN))
-				.append(Component.text(ForceItem.INSTANCE.getItemTable().getCurrentItem(player).getName(), NamedTextColor.AQUA)));
 		ForceItem.INSTANCE.getItemTable().markAsDone(player, time);
 		ItemEntry newItem = getNewItem(player);
 		ForceItem.INSTANCE.getItemTable().add(player, newItem);
