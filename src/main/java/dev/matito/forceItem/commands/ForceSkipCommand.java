@@ -27,6 +27,7 @@ public class ForceSkipCommand {
 
 	public static void register() {
 		new CommandAPICommand("forceskip")
+				.withPermission("force-item.forceskip")
 				.withAliases("done")
 				.withArguments(new PlayerArgument("player"))
 				.executes((sender, args) -> {
