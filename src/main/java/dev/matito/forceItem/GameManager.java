@@ -12,6 +12,7 @@ import java.util.Random;
 @Getter
 public class GameManager {
 	public boolean running = false;
+	String time = "";
 
 	public boolean start() {
 		running = true;
@@ -19,7 +20,7 @@ public class GameManager {
 		ForceItem.INSTANCE.getItemTable().getPlayersCurrentItems().forEach((player, itemEntry) -> {
 			player.playSound(player, Sound.BLOCK_NOTE_BLOCK_PLING, 1, 1);
 			player.sendMessage(ForceItem.getPrefix().append(Component.text("THE GAME STARTS! GO! GO! GO!", NamedTextColor.GREEN)));
-			player.sendMessage(ForceItem.getPrefix().append(Component.text("Your fist Item is: ", NamedTextColor.GREEN))
+			player.sendMessage(ForceItem.getPrefix().append(Component.text("Your first Item is: ", NamedTextColor.GREEN))
 					.append(Component.text(itemEntry.getName(), NamedTextColor.AQUA)));
 		});
 		gameLoop();
@@ -29,23 +30,26 @@ public class GameManager {
 	public boolean end() {
 		if (!running) return false;
 		running = false;
-		ForceItem.INSTANCE.getServer().sendMessage(ForceItem.getPrefix().append(Component.text("THE GAME ENDED! ", NamedTextColor.RED)));
+		ForceItem.INSTANCE.getServer().sendMessage(ForceItem.getPrefix().append(Component.text("THE GAME STOPPED! ", NamedTextColor.RED)));
 		return true;
 	}
 
 	private void gameLoop() {
 		ForceItem.INSTANCE.getTimer().addTickLogic(time -> {
+			this.time = time.toString();
+			ForceItem.INSTANCE.getItemTable().getPlayersCurrentItems().forEach((player, item) -> {
+				if (player != null) player.getInventory().forEach(invItem -> {
+					if (invItem != null && invItem.getType().equals(item.getItemStack().getType())) nextItem(player);
+				});
+			});
 
-			ForceItem.INSTANCE.getItemTable().getPlayersCurrentItems().forEach((player, item) -> player.getInventory().forEach(invItem -> {
-				if (invItem != null && invItem.getType().equals(item.getItemStack().getType())) nextItem(player, time.toString());
-			}));
 
 			if (!ForceItem.INSTANCE.getTimer().getTimerStatus()) end();
 			return null;
 		});
 	}
 
-	private void nextItem(Player player, String time) {
+	public void nextItem(Player player) {
 		player.playSound(player, Sound.ENTITY_PLAYER_LEVELUP, 255, 0.8f);
 		player.sendMessage(ForceItem.getPrefix().append(Component.text("You completed the Item ", NamedTextColor.GREEN))
 				.append(Component.text(ForceItem.INSTANCE.getItemTable().getCurrentItem(player).getName(), NamedTextColor.AQUA)));
