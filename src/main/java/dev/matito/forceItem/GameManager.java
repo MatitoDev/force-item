@@ -48,15 +48,17 @@ public class GameManager {
 		player.sendMessage(ForceItem.getPrefix().append(Component.text("You completed the Item ", NamedTextColor.GREEN))
 				.append(Component.text(ForceItem.INSTANCE.getItemTable().getCurrentItem(player).getName(), NamedTextColor.AQUA)));
 		ForceItem.INSTANCE.getItemTable().markAsDone(player, time);
-		ItemEntry newItem = getNewItem();
+		ItemEntry newItem = getNewItem(player);
 		ForceItem.INSTANCE.getItemTable().add(player, newItem);
 		player.sendMessage(ForceItem.getPrefix().append(Component.text("Your next Item is ", NamedTextColor.GREEN))
 				.append(Component.text(newItem.getName(), NamedTextColor.AQUA)));
 	}
 
-	public static ItemEntry getNewItem() {
+	public static ItemEntry getNewItem(Player player) {
 		double r = new Random().nextDouble();
-		return ItemEntry.getRandomItemByDifficultyWithoutDimension(ItemEntry.Dimension.END, r < 0.3 ? 0 : r < 0.6 ? 1 : r < 0.8 ? 2 : 3);
+		ItemEntry item = ItemEntry.getRandomItemByDifficultyWithoutDimension(ItemEntry.Dimension.END, r < 0.3 ? 0 : r < 0.6 ? 1 : r < 0.8 ? 2 : 3);
+		for (ItemEntry itemEntry : ForceItem.INSTANCE.getItemTable().getFinishedItems(player)) if (itemEntry.equals(item)) return getNewItem(player);
+		return item;
 	}
 }
 

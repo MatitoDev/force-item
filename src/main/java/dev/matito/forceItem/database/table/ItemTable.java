@@ -13,6 +13,7 @@ import org.bukkit.inventory.ItemStack;
 import java.sql.Date;
 import java.time.Instant;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public interface ItemTable extends Table<Item> {
@@ -55,6 +56,9 @@ public interface ItemTable extends Table<Item> {
         return map;
     }
 
+    default List<ItemEntry> getFinishedItems(Player player) {
+        return selectMany(Where.equals("player", player).and(Where.equals("done", true))).stream().map(Item::getItemEntry).toList();
+    }
 
     default int getCount() {
         return getRowCount();

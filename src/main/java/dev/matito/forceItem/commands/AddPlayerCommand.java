@@ -11,7 +11,7 @@ import org.bukkit.entity.Player;
 
 public class AddPlayerCommand {
 	public static void addPlayer(CommandSender sender, Player player) {
-		ForceItem.INSTANCE.getItemTable().add(player, GameManager.getNewItem());
+		ForceItem.INSTANCE.getItemTable().add(player, GameManager.getNewItem(player));
 		sender.sendMessage(ForceItem.getPrefix().append(Component.text("Added ", NamedTextColor.GREEN))
 				.append(Component.text(player.getName(), NamedTextColor.AQUA)));
 	}
