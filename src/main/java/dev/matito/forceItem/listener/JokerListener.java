@@ -26,7 +26,7 @@ import java.util.List;
 
 public class JokerListener implements Listener {
 	public static ItemStack getJokerItem(int count) {
-		ItemStack stack = new ItemStack(Material.BARRIER);
+		ItemStack stack = new ItemStack(Material.BARRIER, count);
 		ItemMeta meta = stack.getItemMeta();
 		meta.displayName(Component.text("Joker", NamedTextColor.GOLD, TextDecoration.BOLD));
 		meta.lore(List.of(Component.text("Click to skip the current Item", NamedTextColor.GRAY)));
