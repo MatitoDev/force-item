@@ -34,10 +34,7 @@ public class JokerListener implements Listener {
 		return stack;
 	}
 
-	//buggy af idfk
-	//mal wirds ausgelöst mal nicht, mal nur wenn auf block mal nur wenn in luft. keine fucking ahnung... meistens eher nach GameManager.start()
-	//maybe eigenen Timer + Game Loop schreiben??
-	@EventHandler(ignoreCancelled = true, priority = EventPriority.HIGHEST)
+	@EventHandler()
 	public void onPlayerInteract(PlayerInteractEvent event) {
 		System.out.println(event.getAction());
 		event.getMaterial();
