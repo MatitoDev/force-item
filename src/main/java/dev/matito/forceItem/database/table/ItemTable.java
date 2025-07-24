@@ -43,16 +43,18 @@ public interface ItemTable extends Table<Item> {
     }
 
     default void markAsDone(Player player, String time) {
+        if (getCurrentItem(player) == null) return;
         update(new Item(player, getCurrentItem(player).toString(), true, false, time));
     }
 
     //skipped by joker, force skip ist just same as done :)
     default void markAsSkipped(Player player, String time) {
-        update(new Item(player, getCurrentItem(player).toString(), true, true, time));
+        if (getCurrentItem(player) == null) return;
+        update(new Item(player, getCurrentItem(player).toString(), false, true, time));
     }
 
     default ItemEntry getCurrentItem(Player player) {
-        return selectOne(Where.equals("player", player).and(Where.equals("done", false))).orElseThrow().getItemEntry();
+        return selectOne(Where.equals("player", player).and(Where.equals("done", false))).map(Item::getItemEntry).orElse(null);
     }
 
     default Map<Player, ItemEntry> getPlayersCurrentItems() {
