@@ -1,26 +1,18 @@
 package dev.matito.forceItem.listener;
 
 import dev.matito.forceItem.ForceItem;
-import dev.matito.forceItem.database.object.Item;
-import dev.triumphteam.gui.builder.item.ItemBuilder;
-import dev.triumphteam.gui.guis.GuiItem;
-import net.kyori.adventure.platform.bukkit.BukkitAudiences;
+
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
 import net.kyori.adventure.text.format.TextDecoration;
-import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
-import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
-import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
-import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -36,21 +28,15 @@ public class JokerListener implements Listener {
 
 	@EventHandler()
 	public void onPlayerInteract(PlayerInteractEvent event) {
-		System.out.println(event.getAction());
-		event.getMaterial();
-		if (event.getMaterial() == Material.BARRIER) {
-			handleJoker(event.getPlayer());
-			event.setCancelled(true);
+		if (event.getMaterial() != Material.BARRIER || !ForceItem.INSTANCE.getTimer().getTimerStatus()) return;
 
-			Bukkit.getScheduler().runTask(ForceItem.INSTANCE, () -> {
-				if (event.getItem().getAmount() > 1) {
-					event.getItem().setAmount(event.getItem().getAmount() - 1);
-				} else {
-					event.getPlayer().getInventory().setItem(event.getHand(), null);
-				}
-				event.getPlayer().updateInventory();
-			});
-		}
+		handleJoker(event.getPlayer());
+		event.setCancelled(true);
+
+		if (event.getItem().getAmount() > 1) event.getItem().setAmount(event.getItem().getAmount() - 1);
+		else event.getPlayer().getInventory().setItem(event.getHand(), null);
+
+		event.getPlayer().updateInventory();
 	}
 
 
