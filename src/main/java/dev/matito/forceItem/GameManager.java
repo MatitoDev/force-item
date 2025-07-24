@@ -7,6 +7,8 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 @Getter
@@ -38,13 +40,11 @@ public class GameManager {
 		ForceItem.INSTANCE.getTimer().addTickLogic(time -> {
 			this.time = time.toString();
 			ForceItem.INSTANCE.getItemTable().getPlayersCurrentItems().forEach((player, item) -> {
-				if (player != null) player.getInventory().forEach(invItem -> {
-					if (invItem != null && invItem.getType().equals(item.getItemStack().getType())) {
-						player.sendMessage(ForceItem.getPrefix().append(Component.text("You completed the Item ", NamedTextColor.GREEN))
-								.append(Component.text(ForceItem.INSTANCE.getItemTable().getCurrentItem(player).getName(), NamedTextColor.AQUA)));
-						nextItem(player);
-					}
-				});
+				if (player != null && Arrays.stream(player.getInventory().getContents()).anyMatch(invItem -> invItem != null && invItem.getType().equals(item.getItemStack().getType()))) {
+					player.sendMessage(ForceItem.getPrefix().append(Component.text("You completed the Item ", NamedTextColor.GREEN))
+							.append(Component.text(ForceItem.INSTANCE.getItemTable().getCurrentItem(player).getName(), NamedTextColor.AQUA)));
+					nextItem(player);
+				}
 			});
 
 
