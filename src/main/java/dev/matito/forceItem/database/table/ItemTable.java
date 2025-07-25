@@ -47,7 +47,7 @@ public interface ItemTable extends Table<Item> {
         update(new Item(player, getCurrentItem(player).toString(), true, false, time));
     }
 
-    //skipped by joker, force skip ist just same as done :)
+    //skipped by joker, force skip deletes the entry
     default void markAsSkipped(Player player, String time) {
         if (getCurrentItem(player) == null) return;
         update(new Item(player, getCurrentItem(player).toString(), false, true, time));

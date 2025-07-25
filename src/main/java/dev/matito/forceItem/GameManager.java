@@ -66,6 +66,7 @@ public class GameManager {
 		double r = new Random().nextDouble();
 		ItemEntry item = ItemEntry.getRandomItemByDifficultyWithoutDimension(ItemEntry.Dimension.END, r < 0.3 ? 0 : r < 0.6 ? 1 : r < 0.8 ? 2 : 3);
 		for (ItemEntry itemEntry : ForceItem.INSTANCE.getItemTable().getFinishedItems(player)) if (itemEntry.equals(item)) return getNewItem(player);
+		for (ItemEntry itemEntry : ForceItem.INSTANCE.getSkippedItems()) if (itemEntry.equals(item)) return getNewItem(player);
 		return item;
 	}
 }

@@ -7,6 +7,7 @@ import dev.matito.forceItem.database.PlayerTypeMapper;
 import dev.matito.forceItem.database.object.Item;
 import dev.matito.forceItem.database.table.ItemTable;
 import dev.matito.forceItem.listener.JokerListener;
+import dev.matito.forceItem.util.ItemEntry;
 import io.github.cdimascio.dotenv.Dotenv;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
@@ -19,6 +20,8 @@ import org.jdbi.v3.postgres.PostgresPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import java.lang.reflect.Field;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 public final class ForceItem extends JavaPlugin {
@@ -32,6 +35,8 @@ public final class ForceItem extends JavaPlugin {
 	private GameManager gameManager;
 
 	private ItemTable itemTable;
+
+	private Set<ItemEntry> skippedItems;
 
 	public static DatabaseManager getDatabase() {
 		return INSTANCE.database;
@@ -51,6 +56,7 @@ public final class ForceItem extends JavaPlugin {
 		setupDatabase();
 		setupTimer();
 		gameManager = new GameManager();
+		skippedItems = new HashSet<>();
 	}
 
 	private void registerCommands() {

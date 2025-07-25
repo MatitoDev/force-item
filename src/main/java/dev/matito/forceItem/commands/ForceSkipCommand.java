@@ -1,5 +1,6 @@
 package dev.matito.forceItem.commands;
 
+import de.mineking.databaseutils.Where;
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.PlayerArgument;
 import dev.matito.forceItem.ForceItem;
@@ -12,6 +13,8 @@ import org.bukkit.entity.Player;
 public class ForceSkipCommand {
 	public static void skip(CommandSender sender, Player player) {
 		ItemEntry oldItem = ForceItem.INSTANCE.getItemTable().getCurrentItem(player);
+		ForceItem.INSTANCE.getSkippedItems().add(oldItem);
+		ForceItem.INSTANCE.getItemTable().delete(Where.equals("player", player).and(Where.equals("itementry", oldItem.toString())));
 		ForceItem.INSTANCE.getGameManager().nextItem(player);
 
 		sender.sendMessage(ForceItem.getPrefix().append(Component.text("Skipped Item ", NamedTextColor.GREEN))
