@@ -1,5 +1,6 @@
 package dev.matito.forceItem.listener;
 
+import com.destroystokyo.paper.event.player.PlayerPostRespawnEvent;
 import dev.matito.forceItem.ForceItem;
 
 import net.kyori.adventure.text.Component;
@@ -9,14 +10,17 @@ import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import java.util.List;
+import java.util.*;
 
 
 public class JokerListener implements Listener {
+	Map<Player, Integer> deadJokers = new HashMap<>();
+
 	public static ItemStack getJokerItem(int count) {
 		ItemStack stack = new ItemStack(Material.BARRIER, count);
 		ItemMeta meta = stack.getItemMeta();
@@ -37,6 +41,26 @@ public class JokerListener implements Listener {
 		else event.getPlayer().getInventory().setItem(event.getHand(), null);
 
 		event.getPlayer().updateInventory();
+	}
+
+	@EventHandler(ignoreCancelled = true)
+	public void onPlayerDeath(PlayerDeathEvent event) {
+		int jokerCount = event.getDrops().stream()
+				.filter(Objects::nonNull)
+				.filter(item -> item.getType() == Material.BARRIER)
+				.mapToInt(ItemStack::getAmount)
+				.sum();
+		event.getDrops().removeIf(item -> item != null && item.getType() == Material.BARRIER);
+		if (jokerCount > 0) {
+			deadJokers.put(event.getEntity(), jokerCount);
+		}
+	}
+
+	@EventHandler(ignoreCancelled = true)
+	public void onPlayerPostRespawn(PlayerPostRespawnEvent event) {
+		event.getPlayer().give(JokerListener.getJokerItem(deadJokers.getOrDefault(event.getPlayer(), 0)));
+		event.getPlayer().updateInventory();
+		deadJokers.remove(event.getPlayer());
 	}
 
 
