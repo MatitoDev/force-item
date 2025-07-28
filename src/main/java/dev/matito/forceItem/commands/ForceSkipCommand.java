@@ -12,7 +12,7 @@ import org.bukkit.entity.Player;
 
 public class ForceSkipCommand {
 	public static void skip(CommandSender sender, Player player) {
-		ItemEntry oldItem = ForceItem.INSTANCE.getItemTable().getCurrentItem(player);
+		ItemEntry oldItem = ForceItem.INSTANCE.getItemTable().getCurrentItemEntry(player);
 		ForceItem.INSTANCE.getSkippedItems().add(oldItem);
 		ForceItem.INSTANCE.getItemTable().delete(Where.equals("player", player).and(Where.equals("itementry", oldItem.toString())));
 		ForceItem.INSTANCE.getGameManager().nextItem(player);

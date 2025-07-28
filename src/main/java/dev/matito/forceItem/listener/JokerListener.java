@@ -68,7 +68,7 @@ public class JokerListener implements Listener {
 		if (!ForceItem.INSTANCE.getGameManager().isRunning()) return;
 
 		player.sendMessage(ForceItem.getPrefix().append(Component.text("You skipped the Item ", NamedTextColor.GREEN))
-				.append(Component.text(ForceItem.INSTANCE.getItemTable().getCurrentItem(player).getName(), NamedTextColor.AQUA)));
+				.append(Component.text(ForceItem.INSTANCE.getItemTable().getCurrentItemEntry(player).getName(), NamedTextColor.AQUA)));
 		ForceItem.INSTANCE.getItemTable().markAsSkipped(player, ForceItem.INSTANCE.getGameManager().getTime());
 		ForceItem.INSTANCE.getGameManager().nextItem(player);
 	}

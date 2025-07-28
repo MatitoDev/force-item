@@ -10,10 +10,8 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public interface ItemTable extends Table<Item> {
 
@@ -43,18 +41,22 @@ public interface ItemTable extends Table<Item> {
     }
 
     default void markAsDone(Player player, String time) {
-        if (getCurrentItem(player) == null) return;
-        update(new Item(player, getCurrentItem(player).toString(), true, false, time));
+        if (getCurrentItemEntry(player) == null) return;
+        update(getCurrentItem(player).setDone(true).setTime(time));
     }
 
     //skipped by joker, force skip deletes the entry
     default void markAsSkipped(Player player, String time) {
         if (getCurrentItem(player) == null) return;
-        update(new Item(player, getCurrentItem(player).toString(), false, true, time));
+        update(getCurrentItem(player).setSkipped(true).setTime(time));
     }
 
-    default ItemEntry getCurrentItem(Player player) {
+    default ItemEntry getCurrentItemEntry(Player player) {
         return selectOne(Where.equals("player", player).and(Where.equals("done", false))).map(Item::getItemEntry).orElse(null);
+    }
+
+    default Item getCurrentItem(Player player) {
+        return selectOne(Where.equals("player", player).and(Where.equals("done", false))).orElse(null);
     }
 
     default Map<Player, ItemEntry> getPlayersCurrentItems() {
@@ -63,8 +65,27 @@ public interface ItemTable extends Table<Item> {
         return map;
     }
 
-    default List<ItemEntry> getFinishedItems(Player player) {
+    default LinkedHashMap<Player, List<Item>> getPlayersFinishedItems() {
+        return selectMany(Where.equals("done", true)).stream()
+                .collect(Collectors.groupingBy(Item::getOnlinePlayer))
+                .entrySet().stream()
+                .sorted(Map.Entry.<Player, List<Item>>comparingByValue(Comparator.comparingInt(List::size))
+                        .reversed())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new
+                ));
+    };
+
+
+    default List<ItemEntry> getFinishedItemEntries(Player player) {
         return selectMany(Where.equals("player", player).and(Where.equals("done", true))).stream().map(Item::getItemEntry).toList();
+    }
+
+    default List<Item> getFinishedItems(Player player) {
+        return selectMany(Where.equals("player", player).and(Where.equals("done", true)));
     }
 
     default int getCount() {

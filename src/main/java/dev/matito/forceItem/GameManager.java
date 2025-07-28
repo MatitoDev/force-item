@@ -8,7 +8,6 @@ import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
 
 @Getter
@@ -42,7 +41,7 @@ public class GameManager {
 			ForceItem.INSTANCE.getItemTable().getPlayersCurrentItems().forEach((player, item) -> {
 				if (player != null && Arrays.stream(player.getInventory().getContents()).anyMatch(invItem -> invItem != null && invItem.getType().equals(item.getItemStack().getType()))) {
 					player.sendMessage(ForceItem.getPrefix().append(Component.text("You completed the Item ", NamedTextColor.GREEN))
-							.append(Component.text(ForceItem.INSTANCE.getItemTable().getCurrentItem(player).getName(), NamedTextColor.AQUA)));
+							.append(Component.text(ForceItem.INSTANCE.getItemTable().getCurrentItemEntry(player).getName(), NamedTextColor.AQUA)));
 					nextItem(player);
 				}
 			});
@@ -65,7 +64,7 @@ public class GameManager {
 	public static ItemEntry getNewItem(Player player) {
 		double r = new Random().nextDouble();
 		ItemEntry item = ItemEntry.getRandomItemByDifficultyWithoutDimension(ItemEntry.Dimension.END, r < 0.3 ? 0 : r < 0.6 ? 1 : r < 0.8 ? 2 : 3);
-		for (ItemEntry itemEntry : ForceItem.INSTANCE.getItemTable().getFinishedItems(player)) if (itemEntry.equals(item)) return getNewItem(player);
+		for (ItemEntry itemEntry : ForceItem.INSTANCE.getItemTable().getFinishedItemEntries(player)) if (itemEntry.equals(item)) return getNewItem(player);
 		for (ItemEntry itemEntry : ForceItem.INSTANCE.getSkippedItems()) if (itemEntry.equals(item)) return getNewItem(player);
 		return item;
 	}
