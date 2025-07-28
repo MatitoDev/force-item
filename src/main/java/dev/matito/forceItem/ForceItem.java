@@ -46,12 +46,11 @@ public final class ForceItem extends JavaPlugin {
 	public void onLoad() {
 		if (INSTANCE != null) throw new RuntimeException("Plugin already loaded");
 		INSTANCE = this;
-
-		registerCommands();
 	}
 
 	@Override
 	public void onEnable() {
+		registerCommands();
 		registerListeners();
 		setupDatabase();
 		setupTimer();
@@ -66,6 +65,7 @@ public final class ForceItem extends JavaPlugin {
 		ResetCommand.register();
 		ForceSkipCommand.register();
 		GiveJokerCommand.register();
+		RevealCommand.register();
 	}
 
 	private void registerListeners() {
