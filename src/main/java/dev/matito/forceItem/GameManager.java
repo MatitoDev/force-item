@@ -4,6 +4,7 @@ import dev.matito.forceItem.util.ItemEntry;
 import lombok.Getter;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import org.bukkit.GameMode;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 
@@ -34,6 +35,8 @@ public class GameManager {
 		if (!running) return false;
 		running = false;
 		ForceItem.INSTANCE.getServer().sendMessage(ForceItem.getPrefix().append(Component.text("THE GAME STOPPED! ", NamedTextColor.RED)));
+		ForceItem.INSTANCE.getHud().removeAllBossBars();
+		ForceItem.INSTANCE.getServer().getOnlinePlayers().forEach(player -> player.setGameMode(GameMode.SPECTATOR));
 		return true;
 	}
 
@@ -47,7 +50,6 @@ public class GameManager {
 					nextItem(player);
 				}
 			});
-
 
 			if (!ForceItem.INSTANCE.getTimer().getTimerStatus()) end();
 			return null;

@@ -1,5 +1,6 @@
 package dev.matito.forceItem;
 
+import net.kyori.adventure.audience.Audience;
 import net.kyori.adventure.bossbar.BossBar;
 import net.kyori.adventure.text.Component;
 import org.bukkit.entity.Player;
@@ -19,7 +20,17 @@ public class Hud {
 			bossBars.put(player, bossBar);
 			player.showBossBar(bossBar);
 		}
+	}
 
+	public void hideBossBar(Player player) {
+		if (bossBars.containsKey(player)) {
+			player.hideBossBar(bossBars.get(player));
+			bossBars.remove(player);
+		}
+	}
 
+	public void removeAllBossBars() {
+		bossBars.forEach(Audience::hideBossBar);
+		bossBars.clear();
 	}
 }
