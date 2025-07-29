@@ -34,14 +34,17 @@ public class GameManager {
 	public boolean end() {
 		if (!running) return false;
 		running = false;
-		ForceItem.INSTANCE.getServer().sendMessage(ForceItem.getPrefix().append(Component.text("THE GAME STOPPED! ", NamedTextColor.RED)));
+		ForceItem.INSTANCE.getServer().sendMessage(ForceItem.getPrefix().append(Component.text("THE GAME ENDED! ", NamedTextColor.RED)));
 		ForceItem.INSTANCE.getHud().removeAllBossBars();
-		ForceItem.INSTANCE.getServer().getOnlinePlayers().forEach(player -> player.setGameMode(GameMode.SPECTATOR));
 		return true;
 	}
 
 	private void gameLoop() {
 		ForceItem.INSTANCE.getTimer().addTickLogic(time -> {
+			if (!ForceItem.INSTANCE.getTimer().getTimerStatus()) {
+				end();
+				return null;
+			}
 			this.time = time.toString();
 			ForceItem.INSTANCE.getItemTable().getPlayersCurrentItems().forEach((player, item) -> {
 				if (player != null && Arrays.stream(player.getInventory().getContents()).anyMatch(invItem -> invItem != null && invItem.getType().equals(item.getItemStack().getType()))) {
@@ -51,7 +54,7 @@ public class GameManager {
 				}
 			});
 
-			if (!ForceItem.INSTANCE.getTimer().getTimerStatus()) end();
+
 			return null;
 		});
 	}
