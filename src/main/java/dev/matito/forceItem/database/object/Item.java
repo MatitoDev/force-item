@@ -12,6 +12,7 @@ import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 @Getter
 @RequiredArgsConstructor
@@ -51,12 +52,12 @@ public class Item {
     public double getTimeInSeconds() {
         double totalSeconds = 0.0;
 
-        // First, split the time string based on "h", "m", "s"
+
         String[] parts = time.replaceAll(" ", "").split("h|m|s");
 
         if (time.contains("h")) totalSeconds += Integer.parseInt(parts[parts.length - 3]) * 3600;
         if (time.contains("m")) totalSeconds += Integer.parseInt(parts[parts.length - 2]) * 60;
-        totalSeconds += Double.parseDouble(parts[parts.length - 1]) * 60;
+        totalSeconds += Double.parseDouble(parts[parts.length - 1]);
 
         return totalSeconds;
     }
