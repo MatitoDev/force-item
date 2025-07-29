@@ -23,7 +23,9 @@ public class GameManager {
 			player.sendMessage(ForceItem.getPrefix().append(Component.text("THE GAME STARTS! GO! GO! GO!", NamedTextColor.GREEN)));
 			player.sendMessage(ForceItem.getPrefix().append(Component.text("Your first Item is: ", NamedTextColor.GREEN))
 					.append(Component.text(itemEntry.getName(), NamedTextColor.AQUA)));
+			ForceItem.INSTANCE.getHud().showBossBar(player);
 		});
+
 		gameLoop();
 		return true;
 	}
@@ -57,6 +59,7 @@ public class GameManager {
 		ForceItem.INSTANCE.getItemTable().markAsDone(player, time);
 		ItemEntry newItem = getNewItem(player);
 		ForceItem.INSTANCE.getItemTable().add(player, newItem);
+		ForceItem.INSTANCE.getHud().showBossBar(player);
 		player.sendMessage(ForceItem.getPrefix().append(Component.text("Your next Item is ", NamedTextColor.GREEN))
 				.append(Component.text(newItem.getName(), NamedTextColor.AQUA)));
 	}

@@ -30,11 +30,11 @@ public final class ForceItem extends JavaPlugin {
 	public final static Dotenv CREDENTIALS = Dotenv.configure().filename("credentials").load();
 
 	private DatabaseManager database;
-	private MTimerAPI timer;
-
-	private GameManager gameManager;
-
 	private ItemTable itemTable;
+
+	private MTimerAPI timer;
+	private GameManager gameManager;
+	private Hud hud;
 
 	private Set<ItemEntry> skippedItems;
 
@@ -56,6 +56,7 @@ public final class ForceItem extends JavaPlugin {
 		setupTimer();
 		gameManager = new GameManager();
 		skippedItems = new HashSet<>();
+		hud = new Hud();
 	}
 
 	private void registerCommands() {
