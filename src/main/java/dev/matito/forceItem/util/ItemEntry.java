@@ -459,7 +459,7 @@ public enum ItemEntry {
 	TORCHFLOWER_SEEDS("Torchflower Seeds", Dimension.OVERWORLD, 0, new ItemStack(Material.TORCHFLOWER_SEEDS)),
 	SNIFFER_EGG("Sniffer Egg", Dimension.OVERWORLD, 0, new ItemStack(Material.SNIFFER_EGG)),
 	TORCHFLOWER("Torchflower", Dimension.OVERWORLD, 0, new ItemStack(Material.TORCHFLOWER)),
-	TALL_DRY_GRASS("Tall Dry Grass", Dimension.OVERWORLD, 0, new ItemStack(Material.TALL_GRASS)),
+	TALL_DRY_GRASS("Tall Grass", Dimension.OVERWORLD, 0, new ItemStack(Material.TALL_GRASS)),
 	// Overworld - Difficulty 1
 	PITCHER_PLANT("Pitcher Plant", Dimension.OVERWORLD, 1, new ItemStack(Material.PITCHER_PLANT)),
 	IRON_INGOT("Iron Ingot", Dimension.OVERWORLD, 1, new ItemStack(Material.IRON_INGOT)),
