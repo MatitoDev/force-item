@@ -3,10 +3,12 @@ package dev.matito.forceItem.commands;
 import de.mineking.databaseutils.Where;
 import dev.jorel.commandapi.CommandAPICommand;
 import dev.jorel.commandapi.arguments.PlayerArgument;
+import dev.jorel.commandapi.arguments.SafeSuggestions;
 import dev.matito.forceItem.ForceItem;
 import dev.matito.forceItem.util.ItemEntry;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.NamedTextColor;
+import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
@@ -32,7 +34,10 @@ public class ForceSkipCommand {
 		new CommandAPICommand("forceskip")
 				.withPermission("force-item.forceskip")
 				.withAliases("done")
-				.withArguments(new PlayerArgument("player"))
+				.withArguments(new PlayerArgument("player")
+						.replaceSafeSuggestions(SafeSuggestions.suggest(info ->
+								Bukkit.getOnlinePlayers().toArray(new Player[0])
+						)))
 				.executes((sender, args) -> {
 					skip(sender, (Player) args.get("player"));
 				})
