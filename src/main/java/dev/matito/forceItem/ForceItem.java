@@ -67,6 +67,7 @@ public final class ForceItem extends JavaPlugin {
 		ForceSkipCommand.register();
 		GiveJokerCommand.register();
 		RevealCommand.register();
+		ItemHelpCommand.register();
 	}
 
 	private void registerListeners() {
