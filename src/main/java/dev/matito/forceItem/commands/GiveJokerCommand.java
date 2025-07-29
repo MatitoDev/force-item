@@ -24,7 +24,7 @@ public class GiveJokerCommand {
 	public static void register() {
 		new CommandAPICommand("givejoker")
 				.withPermission("force-item.givejoker")
-				.withArguments(new PlayerArgument("player"), new IntegerArgument("count"))
+				.withArguments(new PlayerArgument("player"), new IntegerArgument("count", 1, 64))
 				.executes(((sender, args) -> {
 					giveJoker(sender, (Player) args.get("player"), (Integer) args.get("count"));
 				}))
